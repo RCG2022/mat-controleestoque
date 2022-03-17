@@ -1,6 +1,10 @@
 # mat-controleestoque
 Sistema de controle de estoque
 
-Equpe: 
+Equipe: 
 
 Rauny Stefano Marques
+
+Solange Shimada
+
+
