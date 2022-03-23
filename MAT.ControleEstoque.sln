@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6FD2C3FC-3674-4235-8881-9990C2A3694C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E13FF856-337F-4FD0-87F4-2B43D0460711}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAT.ControleEstoque.App", "src\MAT.ControleEstoque.App\MAT.ControleEstoque.App.csproj", "{0106AC86-3B52-4B52-B8CF-8E1E41E2E1FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAT.ControleEstoque.Business", "src\MAT.ControleEstoque.Business\MAT.ControleEstoque.Business.csproj", "{157BAFA3-C5A9-42BE-BCA8-2A1D9B70B2B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MAT.ControleEstoque.Data", "src\MAT.ControleEstoque.Data\MAT.ControleEstoque.Data.csproj", "{6CBAB270-8994-4BC2-BF5C-B66B07CFF239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MAT.ControleEstoque.Test", "MAT.ControleEstoque.Test\MAT.ControleEstoque.Test.csproj", "{D9AC6C43-DE5B-43F1-A0A7-1482B2D65652}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0106AC86-3B52-4B52-B8CF-8E1E41E2E1FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0106AC86-3B52-4B52-B8CF-8E1E41E2E1FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0106AC86-3B52-4B52-B8CF-8E1E41E2E1FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0106AC86-3B52-4B52-B8CF-8E1E41E2E1FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{157BAFA3-C5A9-42BE-BCA8-2A1D9B70B2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{157BAFA3-C5A9-42BE-BCA8-2A1D9B70B2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{157BAFA3-C5A9-42BE-BCA8-2A1D9B70B2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{157BAFA3-C5A9-42BE-BCA8-2A1D9B70B2B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CBAB270-8994-4BC2-BF5C-B66B07CFF239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CBAB270-8994-4BC2-BF5C-B66B07CFF239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CBAB270-8994-4BC2-BF5C-B66B07CFF239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CBAB270-8994-4BC2-BF5C-B66B07CFF239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9AC6C43-DE5B-43F1-A0A7-1482B2D65652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9AC6C43-DE5B-43F1-A0A7-1482B2D65652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9AC6C43-DE5B-43F1-A0A7-1482B2D65652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9AC6C43-DE5B-43F1-A0A7-1482B2D65652}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0106AC86-3B52-4B52-B8CF-8E1E41E2E1FE} = {E13FF856-337F-4FD0-87F4-2B43D0460711}
+		{157BAFA3-C5A9-42BE-BCA8-2A1D9B70B2B7} = {E13FF856-337F-4FD0-87F4-2B43D0460711}
+		{6CBAB270-8994-4BC2-BF5C-B66B07CFF239} = {E13FF856-337F-4FD0-87F4-2B43D0460711}
+		{D9AC6C43-DE5B-43F1-A0A7-1482B2D65652} = {6FD2C3FC-3674-4235-8881-9990C2A3694C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D985B307-0326-47AB-8A49-E35B3FF7DECC}
+	EndGlobalSection
+EndGlobal
