@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\MAT.ControleEstoque.Business\MAT.ControleEstoque.Business.csproj" />
+    <ProjectReference Include="..\..\src\MAT.ControleEstoque.Business\MAT.ControleEstoque.Business.csproj" />
   </ItemGroup>
 
 </Project>
