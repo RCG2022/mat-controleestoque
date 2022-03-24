@@ -1,23 +1,25 @@
-﻿namespace MAT.ControleEstoque.Business.Entities
+﻿using MAT.ControleEstoque.Business.ValueObjects.Person;
+
+namespace MAT.ControleEstoque.Business.Entities
 {
     public class Person
     {
         public Guid Id { get; private set; }
 
-        public string FullName { get; private set; }
+        public FullName FullName { get; private set; }
 
-        public string Email { get; private set; }
+        public Email Email { get; private set; }
 
-        public string Phone { get; private set; }
+        public Phone Phone { get; private set; }
 
-        public string Address { get; private set; }
+        public Address Address { get; private set; }
 
         public Person(
-            Guid id, 
-            string fullName, 
-            string email, 
-            string phone, 
-            string address
+            Guid id,
+            FullName fullName, 
+            Email email, 
+            Phone phone, 
+            Address address
         )
         {
             Id = id;
