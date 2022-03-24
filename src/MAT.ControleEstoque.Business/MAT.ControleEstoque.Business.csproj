@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Deviot.Common" Version="1.0.3.66" />
+  </ItemGroup>
+
 </Project>

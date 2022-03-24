@@ -16,17 +16,17 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public Person(
             Guid id,
-            FullName fullName, 
-            Email email, 
-            Phone phone, 
-            Address address
+            string fullName,
+            string email,
+            string phone,
+            string address
         )
         {
             Id = id;
-            FullName = fullName;
-            Email = email;
-            Phone = phone;
-            Address = address;
+            FullName = new FullName(fullName);
+            Email = new Email(email);
+            Phone = new Phone(phone);
+            Address = new Address(address);
         }
     }
 }

@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MAT.ControleEstoque.Business.ValueObjects.Person
+﻿namespace MAT.ControleEstoque.Business.ValueObjects.Person
 {
+
     public class Phone
     {
+        public string Value { get; private set; }
+
+        public Phone(string value)
+        {
+            Value = value;
+        }
 
     }
 }

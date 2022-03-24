@@ -1,4 +1,5 @@
 ﻿using MAT.ControleEstoque.Business.Entities;
+using MAT.ControleEstoque.Business.ValueObjects.Person;
 using System;
 using Xunit;
 
@@ -27,10 +28,10 @@ namespace MAT.ControleEstoque.Test.Business.Entities
 
             // Assert
             Assert.True(person.Id == id);
-            Assert.True(person.FullName == fullName);
-            Assert.True(person.Email == email);
-            Assert.True(person.Phone == phone);
-            Assert.True(person.Address == address);
+            Assert.True(person.FullName.Value == fullName);
+            Assert.True(person.Email.Value == email);
+            Assert.True(person.Phone.Value == phone);
+            Assert.True(person.Address.Value == address);
         }
     }
 }
