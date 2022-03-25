@@ -14,7 +14,7 @@ namespace MAT.ControleEstoque.Test.Business.Entities
             var id = Guid.NewGuid();
             var fullName = "Rauny Stefano Marques";
             var email = "rauny@gmail.com";
-            var phone = "11 95600 5006";
+            var phone = "(11)4488-5020";
             var address = "Rua Domingos de Braga, 200";
 
             // Act

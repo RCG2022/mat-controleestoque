@@ -2,6 +2,8 @@
 {
     public class FullName
     {
+       
+        
         private const string INVALID_LENGTH_MIN = "O nome completo deve ter no mínimo 5 caracteres";
         private const string INVALID_LENGTH_MAX = "O nome completo deve ter no máximo 50 caracteres";
 
