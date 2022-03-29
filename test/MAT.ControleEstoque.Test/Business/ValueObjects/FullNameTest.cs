@@ -13,12 +13,12 @@ namespace MAT.ControleEstoque.Test.Business.ValueObjects
 
 
 
-        [Fact]
+        [Fact] //test
         public void ValidateTrue()
         {
             // Arrange
             
-            var fullname = "rafael";
+            var fullname = "Rafael";
 
             // Act
             
