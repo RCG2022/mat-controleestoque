@@ -19,7 +19,7 @@ namespace MAT.ControleEstoque.Business.ValueObjects.Person
                 throw new ArgumentException(INVALID_LENGTH_MIN);
             
             if (ValidateAddress(value) == false)     
-                throw new ArgumentException(INVALID_ADDRESS);
+                throw new ArgumentException(INVALID_ADDRESS); 
 
             Value = value;
         }
