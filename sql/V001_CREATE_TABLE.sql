@@ -22,6 +22,26 @@ Values ('0a24e0b6-f5cc-4902-9820-50af6871f225', 'Rauny Stefano Marques', 'rauny.
 
 GO
 
+-- SELECT Person.Id
+--   , Person.FullName
+-- 	 , Person.Email
+-- 	 , Person.Telephone
+-- 	 , Person.Address
+--   FROM Person WITH(NOLOCK)
+--  WHERE Person.Id = '0A24E0B6-F5CC-4902-9820-50AF6871F225'
+-- 
+--  SELECT Person.Id
+--   , Person.FullName
+-- 	 , Person.Email
+-- 	 , Person.Telephone
+-- 	 , Person.Address
+--   FROM Person WITH(NOLOCK)
+--  WHERE Person.FullName LIKE 'Rauny%'
+-- 
+--  UPDATE Person
+--     SET Person.FullName = 'Rauny Stefano Marques'
+--   WHERE Person.Id = '0A24E0B6-F5CC-4902-9820-50AF6871F225'
+
 CREATE TABLE SystemUser (
  Id       UNIQUEIDENTIFIER NOT NULL CONSTRAINT SystemUser_Id DEFAULT NEWID(),
  IdPerson UNIQUEIDENTIFIER NOT NULL,
