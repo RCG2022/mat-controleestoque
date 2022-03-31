@@ -1,4 +1,6 @@
-﻿namespace MAT.ControleEstoque.Business.Entities
+﻿using MAT.ControleEstoque.Business.ValueObjects.User;
+
+namespace MAT.ControleEstoque.Business.Entities
 {
     public class User
     {
@@ -6,9 +8,9 @@
 
         public Guid IdPerson { get; private set; }
 
-        public string Login { get; private set; }
+        public Login Login { get; private set; }
 
-        public string Password { get; private set; }
+        public Password Password { get; private set; }
 
         public bool Enabled { get; private set; }
 
@@ -22,8 +24,8 @@
         {
             Id = id;
             IdPerson = idPerson;
-            Login = login;
-            Password = password;
+            Login = new Login(login);
+            Password = new Password(password);
             Enabled = enabled;
         }
     }

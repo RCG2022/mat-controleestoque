@@ -4,8 +4,8 @@ namespace MAT.ControleEstoque.Business.ValueObjects.User
 {
     public class Password
     {
-        private const string INVALID_LENGTH_MIN = "O Password deve ter no mínimo 8 caracteres";
-        private const string INVALID_LENGTH_MAX = "O Password deve ter no máximo 200 caracteres";
+        private const string INVALID_LENGTH_MIN = "O Password deve ter no mínimo 6 caracteres";
+        private const string INVALID_LENGTH_MAX = "O Password deve ter no máximo 20 caracteres";
         private const string INVALID_PASSWORD = "O Password deve ter no mínimo 1 caracter especial," +
             " uma letra Maiúscula, uma letra minúscula e 1 número";
         
@@ -14,7 +14,7 @@ namespace MAT.ControleEstoque.Business.ValueObjects.User
 
         public Password(string valeu) {
 
-            if (valeu.Length < 8)
+            if (valeu.Length < 6)
                 throw new ArgumentException(INVALID_LENGTH_MIN);
 
             if (valeu.Length > 200)

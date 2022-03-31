@@ -28,8 +28,8 @@ namespace MAT.ControleEstoque.Test.Business.Entities
             // Assert
             Assert.True(person.Id == id);
             Assert.True(person.IdPerson == idPerson);
-            Assert.True(person.Login == login);
-            Assert.True(person.Password == password);
+            Assert.True(person.Login.Value == login);
+            Assert.True(person.Password.Value == password);
             Assert.True(person.Enabled == enabled);
         }
     }
