@@ -62,13 +62,13 @@ namespace MAT.ControleEstoque.Test.Data
         {
             // Arrange
 
-            var id = new Guid("6982f837-2147-4a46-83d4-7b9bd2daae1");
+            var id = new Guid("6982f837-2147-4a46-83d4-7b9bd2daae1c");
             var person = new Person(
                 id,
                 "Julia Miranda Candido",
                 "juliacandidomiranda11@gmail.com",
                 "(11)97777-7777",
-                "Rua imperatriz Leopoldina 1013"
+                "Rua Imperatriz Leopoldina 1013"
                 );
 
             // Act
@@ -83,8 +83,6 @@ namespace MAT.ControleEstoque.Test.Data
             Assert.True(result.Email.Value == person.Email.Value);
             Assert.True(result.Phone.Value == person.Phone.Value);
             Assert.True(result.Address.Value == person.Address.Value);
-
-
         }
 
         [Fact]
