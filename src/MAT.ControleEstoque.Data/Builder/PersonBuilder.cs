@@ -18,7 +18,12 @@ namespace MAT.ControleEstoque.Data.Builder
 
         public Request FindAllRequest(string fullName)
         {
-            throw new NotImplementedException();
+            fullName = $"%{fullName}%";
+            var sql = FindAlldSql();
+            var parameters = new DynamicParameters();
+            parameters.Add(PARAM_FULLNAME, fullName, DbType.String, ParameterDirection.Input);
+
+            return new Request(sql, parameters);
         }
 
         public Request InsertRequest(PersonView person)

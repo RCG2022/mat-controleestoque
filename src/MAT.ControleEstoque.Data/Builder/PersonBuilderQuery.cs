@@ -8,6 +8,7 @@ namespace MAT.ControleEstoque.Data.Builder
         private readonly string _dbSchema;
 
         private const string PARAM_ID = "@Id";
+        private const string PARAM_FULLNAME = "@FullName";
 
         public PersonBuilder(IDbService dbService)
         {
@@ -24,6 +25,20 @@ namespace MAT.ControleEstoque.Data.Builder
             query.AppendLine($"     , Person.Address");
             query.AppendLine($"  FROM {_dbSchema}.Person WITH(NOLOCK)");
             query.AppendLine($" WHERE Person.Id = {PARAM_ID}");
+
+            return query.ToString();
+        }
+
+        protected string FindAlldSql()
+        {
+            var query = new StringBuilder();
+            query.AppendLine($"SELECT Person.Id");
+            query.AppendLine($"     , Person.FullName");
+            query.AppendLine($"     , Person.Email");
+            query.AppendLine($"     , Person.Telephone");
+            query.AppendLine($"     , Person.Address");
+            query.AppendLine($"  FROM {_dbSchema}.Person WITH(NOLOCK)");
+            query.AppendLine($" WHERE Person.FullName LIKE {PARAM_FULLNAME}");
 
             return query.ToString();
         }
