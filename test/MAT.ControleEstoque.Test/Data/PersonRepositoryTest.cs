@@ -58,6 +58,36 @@ namespace MAT.ControleEstoque.Test.Data
         }
 
         [Fact]
+        public async Task Update()
+        {
+            // Arrange
+
+            var id = new Guid("6982f837-2147-4a46-83d4-7b9bd2daae1");
+            var person = new Person(
+                id,
+                "Julia Miranda Candido",
+                "juliacandidomiranda11@gmail.com",
+                "(11)97777-7777",
+                "Rua imperatriz Leopoldina 1013"
+                );
+
+            // Act
+
+            await _personRepository.Update(person);
+
+            var result = await _personRepository.FindById(id);
+
+            // Assert
+            Assert.True(result.Id == person.Id);
+            Assert.True(result.FullName.Value == person.FullName.Value);
+            Assert.True(result.Email.Value == person.Email.Value);
+            Assert.True(result.Phone.Value == person.Phone.Value);
+            Assert.True(result.Address.Value == person.Address.Value);
+
+
+        }
+
+        [Fact]
         public async Task FindAllAsync()
         {
             // Arrange
