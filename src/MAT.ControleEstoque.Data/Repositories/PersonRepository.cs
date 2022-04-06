@@ -37,10 +37,19 @@ namespace MAT.ControleEstoque.Data.Repositories
         }
 
         
-
-        public Task Add(Person person)
+        
+        public async Task Add(Person person)
         {
-            throw new NotImplementedException();
+            var personView = new PersonView();
+            personView.Id = person.Id;
+            personView.FullName = person.FullName.Value;
+            personView.Email = person.Email.Value;
+            personView.Telephone = person.Phone.Value;
+            personView.Address = person.Address.Value;
+
+            var request = _personBuilder.InsertRequest(personView);
+
+            await _dbService.ExecuteCommandRequestAsync(request);
         }
 
         public Task<List<Person>> FindAll(string fullName)

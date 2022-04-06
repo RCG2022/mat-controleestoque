@@ -1,4 +1,5 @@
-﻿using MAT.ControleEstoque.Business.Entities;
+﻿using Deviot.Common;
+using MAT.ControleEstoque.Business.Entities;
 using MAT.ControleEstoque.Data.Builder;
 using MAT.ControleEstoque.Data.Configurations;
 using MAT.ControleEstoque.Data.Core;
@@ -41,6 +42,32 @@ namespace MAT.ControleEstoque.Test.Data
                 );
 
             // Act
+            var result = await _personRepository.FindById(id);
+
+            // Assert
+            Assert.True(result.Id == person.Id);
+            Assert.True(result.FullName.Value == person.FullName.Value);
+            Assert.True(result.Email.Value == person.Email.Value);
+            Assert.True(result.Phone.Value == person.Phone.Value);
+            Assert.True(result.Address.Value == person.Address.Value);
+        }
+
+        [Fact]
+        public async Task InsertSql()
+        {
+            // Arrange
+            var id = Guid.NewGuid();
+            var name = Utils.GenerateRandomString(10);
+            var person = new Person(
+                id,
+                name,
+                $"{name}@gmail.com",
+                "(11)4488-5020",
+                "Rua Domingos de Braga, 200"
+                );
+
+            // Act
+            await _personRepository.Add(person);
             var result = await _personRepository.FindById(id);
 
             // Assert
