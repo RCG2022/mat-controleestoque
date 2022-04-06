@@ -28,5 +28,20 @@ namespace MAT.ControleEstoque.Business.Entities
             Phone = new Phone(phone);
             Address = new Address(address);
         }
+
+        public Person(
+            Guid id, 
+            FullName fullName, 
+            Email email, 
+            Phone phone, 
+            Address address
+            )
+        {
+            Id = id;
+            FullName = fullName;
+            Email = email;
+            Phone = phone;
+            Address = address;
+        }
     }
 }

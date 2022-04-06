@@ -28,5 +28,20 @@ namespace MAT.ControleEstoque.Business.Entities
             Password = new Password(password);
             Enabled = enabled;
         }
+
+        public User(
+            Guid id,
+            Guid idPerson, 
+            Login login, 
+            Password password, 
+            bool enabled
+            )
+        {
+            Id = id;
+            IdPerson = idPerson;
+            Login = login;
+            Password = password;
+            Enabled = enabled;
+        }
     }
 }
