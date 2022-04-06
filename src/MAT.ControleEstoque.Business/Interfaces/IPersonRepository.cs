@@ -4,12 +4,12 @@ namespace MAT.ControleEstoque.Business.Interfaces
 {
     public interface IPersonRepository
     {
-        public Person Find(Guid id);
+        public Task<Person> FindById(Guid id);
 
-        public List<Person> FindAll(string fullName);
+        public Task<List<Person>> FindAll(string fullName);
 
-        public void Add(Person person);
+        public Task Add(Person person);
 
-        public void Update(Person person);
+        public Task Update(Person person);
     }
 }

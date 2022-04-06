@@ -1,4 +1,5 @@
-﻿using MAT.ControleEstoque.Business.Entities;
+﻿using Deviot.Common;
+using MAT.ControleEstoque.Business.Entities;
 using System;
 using Xunit;
 
@@ -13,7 +14,7 @@ namespace MAT.ControleEstoque.Test.Business.Entities
             var id = Guid.NewGuid();
             var idPerson = Guid.NewGuid();
             var login = "rauny";
-            var password = "123@qwe";
+            var password = "Rafael@123";
             var enabled = true;
 
             // Act
@@ -29,7 +30,7 @@ namespace MAT.ControleEstoque.Test.Business.Entities
             Assert.True(person.Id == id);
             Assert.True(person.IdPerson == idPerson);
             Assert.True(person.Login.Value == login);
-            Assert.True(person.Password.Value == password);
+            Assert.True(person.Password.Value == Utils.Encript(password));
             Assert.True(person.Enabled == enabled);
         }
     }

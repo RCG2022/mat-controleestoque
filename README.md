@@ -10,6 +10,8 @@ Solange Shimada
 Paulo Cesar de Souza
 </br>
 Rafael de Castro Gamatielli
+</br>
+Cesar Augusto de Souza
 
 Escopo do sistema
 Sistema de controle de estoque, onde precisa cadastrar produtos, controlar a entrada e saida do estoque, login, cadastro de usuarios, controle de acesso, vendas

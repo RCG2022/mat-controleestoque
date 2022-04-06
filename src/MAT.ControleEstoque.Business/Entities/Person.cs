@@ -6,9 +6,9 @@ namespace MAT.ControleEstoque.Business.Entities
     {
         public Guid Id { get; private set; }
 
-        public FullName FullName { get; private set; }
+        public FullName FullName { get; protected set; }
 
-        public Email Email { get; private set; }
+        public Email Email { get; set; }
 
         public Phone Phone { get; private set; }
 
