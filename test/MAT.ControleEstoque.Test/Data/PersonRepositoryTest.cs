@@ -5,6 +5,7 @@ using MAT.ControleEstoque.Data.Configurations;
 using MAT.ControleEstoque.Data.Core;
 using MAT.ControleEstoque.Data.Repositories;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -28,20 +29,53 @@ namespace MAT.ControleEstoque.Test.Data
             _personRepository = new PersonRepository(dbService, personBuilder);
         }
 
-        [Fact]
-        public async Task FindByIdAsync()
+        private Person CreatePerson()
         {
-            // Arrange
             var id = new Guid("0a24e0b6-f5cc-4902-9820-50af6871f225");
-            var person = new Person(
-                id, 
+            return new Person(
+                id,
                 "Rauny Stefano Marques",
                 "rauny.stefano2211@gmail.com",
                 "(11)4488-5020",
                 "Rua Domingos de Braga, 200"
                 );
+        }
+
+        [Fact]
+        public async Task FindByIdAsync()
+        {
+            // Arrange
+            var person = CreatePerson();
 
             // Act
+            var result = await _personRepository.FindById(person.Id);
+
+            // Assert
+            Assert.True(result.Id == person.Id);
+            Assert.True(result.FullName.Value == person.FullName.Value);
+            Assert.True(result.Email.Value == person.Email.Value);
+            Assert.True(result.Phone.Value == person.Phone.Value);
+            Assert.True(result.Address.Value == person.Address.Value);
+        }
+
+        [Fact]
+        public async Task Update()
+        {
+            // Arrange
+
+            var id = new Guid("6982f837-2147-4a46-83d4-7b9bd2daae1c");
+            var person = new Person(
+                id,
+                "Julia Miranda Candido",
+                "juliacandidomiranda11@gmail.com",
+                "(11)97777-7777",
+                "Rua Imperatriz Leopoldina 1013"
+                );
+
+            // Act
+
+            await _personRepository.Update(person);
+
             var result = await _personRepository.FindById(id);
 
             // Assert
@@ -50,6 +84,24 @@ namespace MAT.ControleEstoque.Test.Data
             Assert.True(result.Email.Value == person.Email.Value);
             Assert.True(result.Phone.Value == person.Phone.Value);
             Assert.True(result.Address.Value == person.Address.Value);
+        }
+
+        [Fact]
+        public async Task FindAllAsync()
+        {
+            // Arrange
+            var person = CreatePerson();
+
+            // Act
+            var result = await _personRepository.FindAll("rauny");
+
+            // Assert
+            Assert.True(result.Any());
+            Assert.True(result[0].Id == person.Id);
+            Assert.True(result[0].FullName.Value == person.FullName.Value);
+            Assert.True(result[0].Email.Value == person.Email.Value);
+            Assert.True(result[0].Phone.Value == person.Phone.Value);
+            Assert.True(result[0].Address.Value == person.Address.Value);
         }
 
         [Fact]

@@ -52,14 +52,42 @@ namespace MAT.ControleEstoque.Data.Repositories
             await _dbService.ExecuteCommandRequestAsync(request);
         }
 
-        public Task<List<Person>> FindAll(string fullName)
+        public async Task<List<Person>> FindAll(string fullName)
         {
-            throw new NotImplementedException();
+            var request = _personBuilder.FindAllRequest(fullName);
+            var personViewList = await _dbService.ExecuteQueryRequestAsync<PersonView>(request);
+
+            var personList = new List<Person>();
+
+            foreach(var personView in personViewList)
+            {
+                var person = new Person(
+                personView.Id,
+                personView.FullName,
+                personView.Email,
+                personView.Telephone,
+                personView.Address
+                );
+
+                personList.Add(person);
+            }
+
+            return personList;
         }
 
-        public Task Update(Person person)
+        public async Task Update (Person person)
         {
-            throw new NotImplementedException();
+            var personview = new PersonView();
+            personview.Id = person.Id;
+            personview.FullName = person.FullName.Value;
+            personview.Email = person.Email.Value;
+            personview.Telephone = person.Phone.Value;
+            personview.Address = person.Address.Value;
+
+            var request = _personBuilder.UpdateRequest(personview);
+
+            await _dbService.ExecuteCommandRequestAsync(request);
+            
         }
     }
 }
