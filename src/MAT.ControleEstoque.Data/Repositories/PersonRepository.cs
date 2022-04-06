@@ -48,9 +48,19 @@ namespace MAT.ControleEstoque.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task Update(Person person)
+        public async Task Update (Person person)
         {
-            throw new NotImplementedException();
+            var personview = new PersonView();
+            personview.Id = person.Id;
+            personview.FullName = person.FullName.Value;
+            personview.Email = person.Email.Value;
+            personview.Telephone = person.Phone.Value;
+            personview.Address = person.Address.Value;
+
+            var request = _personBuilder.UpdateRequest(personview);
+
+            await _dbService.ExecuteCommandRequestAsync(request);
+            
         }
     }
 }
