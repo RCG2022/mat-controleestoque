@@ -57,7 +57,7 @@ namespace MAT.ControleEstoque.Test.Business.ValueObjects.User
         }
 
         [Fact]
-        public void ValidateRegex1()
+        public void ValidateRegexLowercase()
         {
             //Arrange
 
@@ -71,7 +71,7 @@ namespace MAT.ControleEstoque.Test.Business.ValueObjects.User
         }
 
         [Fact]
-        public void ValidateRegex2()
+        public void ValidateRegexUppercase()
         {
             //Arrange
 
@@ -85,7 +85,7 @@ namespace MAT.ControleEstoque.Test.Business.ValueObjects.User
         }
 
         [Fact]
-        public void ValidateRegex3()
+        public void ValidateRegexSpecialCharacters()
         {
             //Arrange
 
@@ -99,7 +99,7 @@ namespace MAT.ControleEstoque.Test.Business.ValueObjects.User
         }
 
         [Fact]
-        public void ValidateRegex4()
+        public void ValidateRegexInvalidCharacters()
         {
             //Arrange
 
