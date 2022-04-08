@@ -20,10 +20,10 @@ namespace MAT.ControleEstoque.Test.Business.Entities
             // Act
             var client = new Client(
                 id,
-                fullName,
-                email,
-                phone,
-                address
+                new FullName(fullName),
+                new Email(email),
+                new Phone(phone),
+                new Address(address)
                 );
 
             // Assert

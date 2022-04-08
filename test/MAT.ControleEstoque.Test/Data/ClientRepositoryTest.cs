@@ -1,5 +1,6 @@
 ﻿using Deviot.Common;
 using MAT.ControleEstoque.Business.Entities;
+using MAT.ControleEstoque.Business.ValueObjects.Client;
 using MAT.ControleEstoque.Data.Builder;
 using MAT.ControleEstoque.Data.Configurations;
 using MAT.ControleEstoque.Data.Core;
@@ -33,10 +34,10 @@ namespace MAT.ControleEstoque.Test.Data
             var id = new Guid("0a24e0b6-f5cc-4902-9820-50af6871f225");
             return new Client(
                 id,
-                "Rauny Stefano Marques",
-                "rauny.stefano2211@gmail.com",
-                "(11)4488-5020",
-                "Rua Domingos de Braga, 200"
+                new FullName("Rauny Stefano Marques"),
+                new Email("rauny.stefano2211@gmail.com"),
+                new Phone("(11)4488-5020"),
+                new Address("Rua Domingos de Braga, 200")
                 );
         }
 
@@ -65,10 +66,10 @@ namespace MAT.ControleEstoque.Test.Data
             var id = new Guid("6982f837-2147-4a46-83d4-7b9bd2daae1c");
             var client = new Client(
                 id,
-                "Julia Miranda Candido",
-                "juliacandidomiranda11@gmail.com",
-                "(11)97777-7777",
-                "Rua Imperatriz Leopoldina 1013"
+                new FullName("Julia Miranda Candido"),
+                new Email("juliacandidomiranda11@gmail.com"),
+                new Phone("(11)97777-7777"),
+                new Address("Rua Imperatriz Leopoldina 1013")
                 );
 
             // Act
@@ -111,10 +112,10 @@ namespace MAT.ControleEstoque.Test.Data
             var name = Utils.GenerateRandomString(10);
             var client = new Client(
                 id,
-                name,
-                $"{name}@gmail.com",
-                "(11)4488-5020",
-                "Rua Domingos de Braga, 200"
+                new FullName(name),
+                new Email($"{name}@gmail.com"),
+                new Phone("(11)4488-5020"),
+                new Address("Rua Domingos de Braga, 200")
                 );
 
             // Act

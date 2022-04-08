@@ -1,5 +1,6 @@
 ﻿using MAT.ControleEstoque.Business.Entities;
 using MAT.ControleEstoque.Business.Interfaces;
+using MAT.ControleEstoque.Business.ValueObjects.Client;
 using MAT.ControleEstoque.Data.Builder;
 using MAT.ControleEstoque.Data.Core;
 using MAT.ControleEstoque.Data.View;
@@ -27,10 +28,10 @@ namespace MAT.ControleEstoque.Data.Repositories
 
             var client = new Client(
                 clientView.Id,
-                clientView.FullName,
-                clientView.Email,
-                clientView.Telephone,
-                clientView.Address
+                new FullName(clientView.FullName),
+                new Email(clientView.Email),
+                new Phone(clientView.Telephone),
+                new Address(clientView.Address)
                 );
 
             return client;
@@ -63,10 +64,10 @@ namespace MAT.ControleEstoque.Data.Repositories
             {
                 var client = new Client(
                 clientView.Id,
-                clientView.FullName,
-                clientView.Email,
-                clientView.Telephone,
-                clientView.Address
+                new FullName(clientView.FullName),
+                new Email(clientView.Email),
+                new Phone(clientView.Telephone),
+                new Address(clientView.Address)
                 );
 
                 clientList.Add(client);
