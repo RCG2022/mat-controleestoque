@@ -53,7 +53,7 @@ namespace MAT.ControleEstoque.Data.Repositories
             _dbService.ExecuteCommandRequest(request);
         }
 
-        public List<Client> FindAll(string fullName)
+        public IEnumerable<Client> FindAll(string fullName)
         {
             var request = _clientBuilder.FindAllRequest(fullName);
             var clientViewList = _dbService.ExecuteQueryRequest<ClientView>(request);

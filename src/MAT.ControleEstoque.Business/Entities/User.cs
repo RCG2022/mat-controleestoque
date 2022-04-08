@@ -17,8 +17,8 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public User(
             Guid id,
-            Login login, 
-            Password password, 
+            Login login,
+            Password password,
             bool enabled
             )
         {
@@ -27,6 +27,7 @@ namespace MAT.ControleEstoque.Business.Entities
             Password = password;
             Enabled = enabled;
         }
+
         public User(
             Guid id,
             Login login,
@@ -36,6 +37,6 @@ namespace MAT.ControleEstoque.Business.Entities
             Id = id;
             Login = login;
             Enabled = enabled;
-        }      
+        }
     }
 }

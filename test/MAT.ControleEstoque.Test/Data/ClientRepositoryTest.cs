@@ -93,7 +93,7 @@ namespace MAT.ControleEstoque.Test.Data
             var client = CreateClient();
 
             // Act
-            var result = _clientRepository.FindAll("rauny");
+            var result = _clientRepository.FindAll("rauny").ToList();
 
             // Assert
             Assert.True(result.Any());

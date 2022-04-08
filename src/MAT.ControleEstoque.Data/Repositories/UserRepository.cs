@@ -46,7 +46,6 @@ namespace MAT.ControleEstoque.Data.Repositories
                 var user = new User(
                  userView.Id,
                  new Login(userView.Login),
-                 new Password(userView.Password),
                  userView.Enabled
                  );
 
