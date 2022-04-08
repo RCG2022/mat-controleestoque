@@ -14,14 +14,25 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public User(
             Guid id,
-            Login login, 
-            Password password, 
+            Login login,
+            Password password,
             bool enabled
             )
         {
             Id = id;
             Login = login;
             Password = password;
+            Enabled = enabled;
+        }
+
+        public User(
+            Guid id,
+            Login login,
+            bool enabled
+            )
+        {
+            Id = id;
+            Login = login;
             Enabled = enabled;
         }
     }

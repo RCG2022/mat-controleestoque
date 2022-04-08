@@ -6,7 +6,7 @@ namespace MAT.ControleEstoque.Business.Interfaces
     {
         public Client FindById(Guid id);
 
-        public List<Client> FindAll(string fullName);
+        public IEnumerable<Client> FindAll(string fullName);
 
         public void Insert(Client client);
 

@@ -20,7 +20,7 @@ namespace MAT.ControleEstoque.Data.Builder
         public Request FindAllRequest(string login)
         {
             login = $"%{login}%";
-            var sql = LoginSql();
+            var sql = FindAllSql();
             var parameters = new DynamicParameters();
             parameters.Add(PARAM_LOGIN, login, DbType.String, ParameterDirection.Input);
 
