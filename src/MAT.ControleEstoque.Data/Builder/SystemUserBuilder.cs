@@ -17,7 +17,7 @@ namespace MAT.ControleEstoque.Data.Builder
         }
 
        
-        public Request FindByLoginRequest(string login)
+        public Request FindAllRequest(string login)
         {
             login = $"%{login}%";
             var sql = LoginSql();
@@ -26,21 +26,50 @@ namespace MAT.ControleEstoque.Data.Builder
 
             return new Request(sql, parameters);
         }
-        
-        public Request UpdateRequest(SystemUserView SystemUser)
+
+        public Request LoginRequest(string login, string password)
         {
-            var sql = UpdateSql();
+            var sql = LoginSql();
             var parameters = new DynamicParameters();
-            parameters.Add(PARAM_ID, SystemUser.Id , DbType.Guid, ParameterDirection.Input);
-            parameters.Add(PARAM_LOGIN, SystemUser.Login, DbType.String, ParameterDirection.Input);
-            parameters.Add(PARAM_PASSWORD, SystemUser.Password, DbType.String, ParameterDirection.Input);
+            parameters.Add(PARAM_LOGIN, login, DbType.String, ParameterDirection.Input);
+            parameters.Add(PARAM_PASSWORD, password, DbType.String, ParameterDirection.Input);
 
             return new Request(sql, parameters);
         }
 
-        public Request UpdateRequest(ClientView client)
+        public Request InsertRequest(SystemUserView SystemUser)
         {
-            throw new NotImplementedException();
+            var sql = InsertSql();
+            var parameters = new DynamicParameters();
+            parameters.Add(PARAM_ID, SystemUser.Id, DbType.Guid, ParameterDirection.Input);
+            parameters.Add(PARAM_LOGIN, SystemUser.Login, DbType.String, ParameterDirection.Input);
+            parameters.Add(PARAM_PASSWORD, SystemUser.Password, DbType.String, ParameterDirection.Input);
+            parameters.Add(PARAM_ENABLED, SystemUser.Enabled, DbType.Boolean, ParameterDirection.Input);
+
+            return new Request(sql, parameters);
         }
+
+        public Request UpdateRequest(SystemUserView SystemUser)
+        {
+            var sql = UpdateSql();
+            var parameters = new DynamicParameters();
+            parameters.Add(PARAM_ID, SystemUser.Id, DbType.Guid, ParameterDirection.Input);
+            parameters.Add(PARAM_LOGIN, SystemUser.Login, DbType.String, ParameterDirection.Input);
+            parameters.Add(PARAM_ENABLED, SystemUser.Enabled, DbType.Boolean, ParameterDirection.Input);
+
+            return new Request(sql, parameters);
+        }
+
+        public Request UpdatePasswordRequest(Guid id, string password)
+        {
+            var sql = UpdatePasswordSql();
+            var parameters = new DynamicParameters();
+            parameters.Add(PARAM_ID, id, DbType.Guid, ParameterDirection.Input);
+            parameters.Add(PARAM_PASSWORD, password, DbType.String, ParameterDirection.Input);
+
+            return new Request(sql, parameters);
+        }
+
+
     }
 }

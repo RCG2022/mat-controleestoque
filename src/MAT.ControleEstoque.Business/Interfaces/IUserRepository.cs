@@ -4,7 +4,7 @@ namespace MAT.ControleEstoque.Business.Interfaces
 {
     public interface IUserRepository
     {
-        public User Find(Guid id);
+        public User FindById(Guid id);
 
         public IEnumerable<User> FindAll(string login);
 
@@ -14,6 +14,6 @@ namespace MAT.ControleEstoque.Business.Interfaces
 
         public void Update(User user);
 
-        public void UpdatePassword(Guid id, string password, string newPassword);
+        public void UpdatePassword(Guid id, string password);
     }
 }

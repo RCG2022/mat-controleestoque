@@ -15,21 +15,6 @@ namespace MAT.ControleEstoque.Business.Entities
         public Address Address { get; private set; }
 
         public Client(
-            Guid id,
-            string fullName,
-            string email,
-            string phone,
-            string address
-        )
-        {
-            Id = id;
-            FullName = new FullName(fullName);
-            Email = new Email(email);
-            Phone = new Phone(phone);
-            Address = new Address(address);
-        }
-
-        public Client(
             Guid id, 
             FullName fullName, 
             Email email, 

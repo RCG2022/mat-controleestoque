@@ -7,9 +7,15 @@ namespace MAT.ControleEstoque.Data.Builder
     {
         public Request FindByIdRequest(Guid id);
 
-        public Request FindByLoginRequest(string Login);
+        public Request FindAllRequest(string Login);
 
-        public Request UpdateRequest(ClientView client);
+        public Request LoginRequest(string login, string password);
+
+        public Request InsertRequest(SystemUserView SystemUser);
+
+        public Request UpdateRequest(SystemUserView SystemUser);
+
+        public Request UpdatePasswordRequest(Guid id, string password);
     }
 }
 
