@@ -32,19 +32,28 @@ namespace MAT.ControleEstoque.Test.Data
             return new User(
                 new Guid("122f77e6-6549-417a-80a3-82c9056c34cc"),
                 new Login("RAUNYSMZZ"),
-                new Password("paula@123"),
+                new Password("Paula@123"),
                 true
                 );
         }
 
         [Fact]
-        public void FindById()
+        public void FindById() 
         {
             // Arrange
 
+            var user = CreateUser();
+
             // Act
 
+            var result = _userRepository.FindById(user.Id);
+
             // Assert
+
+            Assert.True(result.Id == user.Id);
+            Assert.True(result.Login.Value == user.Login.Value);
+            Assert.True(result.Enabled == user.Enabled);
+
         }
 
         [Fact]
@@ -78,13 +87,28 @@ namespace MAT.ControleEstoque.Test.Data
         }
 
         [Fact]
-        public void Update()
+        public void Update() //Rauny
         {
             // Arrange
 
+            var id = new Guid("a31c3728-b172-49c4-a971-4886fb3355cc");
+            var user = new User(
+                id,
+                new Login("GUUU"),
+                true 
+                );
+
             // Act
 
+            _userRepository.Update(user);
+
+            var result = _userRepository.FindById(id);
+
             // Assert
+
+            Assert.True(result.Id == user.Id);
+            Assert.True(result.Login.Value == user.Login.Value);
+            Assert.True(result.Enabled == user.Enabled);
         }
 
         [Fact]
