@@ -4,8 +4,6 @@ namespace MAT.ControleEstoque.Business.Entities
 {
     public class User
     {
-        private Login login;
-        private Password password;
 
         public Guid Id { get; private set; }
 
@@ -38,11 +36,5 @@ namespace MAT.ControleEstoque.Business.Entities
             Enabled = enabled;
         }
 
-        public User(Guid id, Login login, Password password)
-        {
-            Id = id;
-            this.login = login;
-            this.password = password;
-        }
     }
 }
