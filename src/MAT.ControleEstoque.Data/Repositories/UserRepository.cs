@@ -55,6 +55,7 @@ namespace MAT.ControleEstoque.Data.Repositories
             return userList;
         }
 
+
         public User Login(string login, string password)
         {
             var request = _userBuilder.LoginRequest(login, password);
@@ -66,7 +67,6 @@ namespace MAT.ControleEstoque.Data.Repositories
             var user = new User(
                 userView.Id,
                 new Login(userView.Login),
-                new Password(userView.Password),
                 userView.Enabled
                 );
 
@@ -96,9 +96,9 @@ namespace MAT.ControleEstoque.Data.Repositories
             _dbService.ExecuteCommandRequest(request);
         }
 
-        public void UpdatePassword(Guid id, string password)
+        public void UpdatePassword(Guid id, Password password)
         {
-            var request = _userBuilder.UpdatePasswordRequest(id, password);
+            var request = _userBuilder.UpdatePasswordRequest(id, password.Value);
             _dbService.ExecuteCommandRequest(request);
         }
     }

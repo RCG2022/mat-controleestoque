@@ -77,10 +77,16 @@ namespace MAT.ControleEstoque.Test.Data
         public void Login()
         {
             // Arrange
+            var user = CreateUser();
 
             // Act
 
+            var result = _userRepository.Login(user.Login.Value, user.Password.Value);
+
             // Assert
+            Assert.True(result.Id == user.Id);
+            Assert.True(result.Login.Value == user.Login.Value);
+            Assert.True(result.Enabled == user.Enabled);
         }
         
         [Fact]
@@ -133,11 +139,15 @@ namespace MAT.ControleEstoque.Test.Data
         }
 
         [Fact]
-        public void UpdatePasword()
+        public void UpdatePassword()
         {
             // Arrange
-
+            var id = new Guid("a31c3728-b172-49c4-a971-4886fb3355cc");
+            var password = new Password("Cesar@123");
+            
             // Act
+
+            _userRepository.UpdatePassword(id, password);
 
             // Assert
         }

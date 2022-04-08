@@ -1,19 +1,20 @@
 ﻿using MAT.ControleEstoque.Business.Entities;
+using MAT.ControleEstoque.Business.ValueObjects.User;
 
 namespace MAT.ControleEstoque.Business.Interfaces
 {
     public interface IUserRepository
     {
-        public User FindById(Guid id); // rauny
+        public User FindById(Guid id); 
 
-        public IEnumerable<User> FindAll(string login); // gu
+        public IEnumerable<User> FindAll(string login); 
 
-        public User Login(string login, string password); // rafael
+        public User Login(string login, string password); 
 
-        public void Insert(User user); // gu
+        public void Insert(User user);
 
-        public void Update(User user); // rauny
+        public void Update(User user); 
 
-        public void UpdatePassword(Guid id, string password); // rafael
+        public void UpdatePassword(Guid id, Password password); 
     }
 }
