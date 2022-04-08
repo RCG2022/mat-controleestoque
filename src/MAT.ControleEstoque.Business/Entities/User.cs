@@ -6,7 +6,7 @@ namespace MAT.ControleEstoque.Business.Entities
     {
         public Guid Id { get; private set; }
 
-        public Guid IdPerson { get; private set; }
+        public Guid IdClient { get; private set; }
 
         public Login Login { get; private set; }
 
@@ -16,14 +16,14 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public User(
             Guid id, 
-            Guid idPerson, 
+            Guid idClient, 
             string login, 
             string password, 
             bool enabled
             )
         {
             Id = id;
-            IdPerson = idPerson;
+            IdClient = idClient;
             Login = new Login(login);
             Password = new Password(password);
             Enabled = enabled;
@@ -31,14 +31,14 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public User(
             Guid id,
-            Guid idPerson, 
+            Guid idClient, 
             Login login, 
             Password password, 
             bool enabled
             )
         {
             Id = id;
-            IdPerson = idPerson;
+            IdClient = idClient;
             Login = login;
             Password = password;
             Enabled = enabled;

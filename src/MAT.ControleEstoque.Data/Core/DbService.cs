@@ -24,7 +24,7 @@ namespace MAT.ControleEstoque.Data.Core
 
         public IDbConnection CreateConnection() => new SqlConnection(_configuration.ConnectionString);
 
-        public async Task<IEnumerable<TOutput>> ExecuteQueryRequestAsync<TOutput>(Request queryRequest)
+        public IEnumerable<TOutput> ExecuteQueryRequest<TOutput>(Request queryRequest)
         {
             var result = default(IEnumerable<TOutput>);
             using var connection = CreateConnection();
@@ -32,7 +32,7 @@ namespace MAT.ControleEstoque.Data.Core
             try
             {
                 connection.Open();
-                result = await connection.QueryAsync<TOutput>(
+                result = connection.Query<TOutput>(
                     queryRequest.Sql,
                     queryRequest.DynamicParameters);
 
@@ -51,7 +51,7 @@ namespace MAT.ControleEstoque.Data.Core
             return result;
         }
 
-        public async Task<TOutput> ExecuteQueryFirstOrDefaultAsync<TOutput>(Request queryRequest)
+        public TOutput ExecuteQueryFirstOrDefault<TOutput>(Request queryRequest)
         {
             var result = default(TOutput);
             using var connection = CreateConnection();
@@ -59,7 +59,7 @@ namespace MAT.ControleEstoque.Data.Core
             try
             {
                 connection.Open();
-                result = await connection.QueryFirstOrDefaultAsync<TOutput>(
+                result = connection.QueryFirstOrDefault<TOutput>(
                     queryRequest.Sql,
                     queryRequest.DynamicParameters);
             }
@@ -75,7 +75,7 @@ namespace MAT.ControleEstoque.Data.Core
             return result;
         }
 
-        public async Task ExecuteCommandRequestAsync(Request commandRequest)
+        public void ExecuteCommandRequest(Request commandRequest)
         {
             using var connection = CreateConnection();
 
@@ -86,7 +86,7 @@ namespace MAT.ControleEstoque.Data.Core
 
                 try
                 {
-                    await connection.ExecuteAsync(
+                    connection.Execute(
                         commandRequest.Sql,
                         commandRequest.DynamicParameters,
                         transaction);
@@ -109,7 +109,7 @@ namespace MAT.ControleEstoque.Data.Core
             }
         }
 
-        public async Task ExecuteCommandRequestAsync(IEnumerable<Request> commandRequests)
+        public void ExecuteCommandRequest(IEnumerable<Request> commandRequests)
         {
             using var connection = CreateConnection();
 
@@ -122,7 +122,7 @@ namespace MAT.ControleEstoque.Data.Core
                 {
                     foreach (var commandRequest in commandRequests)
                     {
-                        await connection.ExecuteAsync(
+                        connection.Execute(
                             commandRequest.Sql,
                             commandRequest.DynamicParameters,
                             transaction);
@@ -146,7 +146,7 @@ namespace MAT.ControleEstoque.Data.Core
             }
         }
 
-        public async Task<int> ExecuteCommandRowsRequestAsync(IEnumerable<Request> commandRequests)
+        public int ExecuteCommandRowsRequest(IEnumerable<Request> commandRequests)
         {
             int affectedLines = 0;
             using var connection = CreateConnection();
@@ -161,7 +161,7 @@ namespace MAT.ControleEstoque.Data.Core
 
                     foreach (var commandRequest in commandRequests)
                     {
-                        affectedLines += await connection.ExecuteAsync(
+                        affectedLines += connection.Execute(
                             commandRequest.Sql,
                             commandRequest.DynamicParameters,
                             transaction);
@@ -187,7 +187,7 @@ namespace MAT.ControleEstoque.Data.Core
             return affectedLines;
         }
 
-        public async Task ExecuteProcedureRequestAsync(
+        public void ExecuteProcedureRequest(
             IEnumerable<Request> commandRequests,
             IDbTransaction? transaction = null,
             int? commandTimeout = null
@@ -200,7 +200,7 @@ namespace MAT.ControleEstoque.Data.Core
                 connection.Open();
                 foreach (var commandRequest in commandRequests)
                 {
-                    await connection.ExecuteAsync(
+                    connection.Execute(
                         commandRequest.Sql,
                         commandRequest.DynamicParameters,
                         transaction,
@@ -219,7 +219,7 @@ namespace MAT.ControleEstoque.Data.Core
             }
         }
 
-        public async Task<IEnumerable<TOutput>> ExecuteProcedureRequestAsync<TOutput>(
+        public IEnumerable<TOutput> ExecuteProcedureRequest<TOutput>(
             Request commandRequest,
             IDbTransaction? transaction = null,
             int? commandTimeout = null
@@ -231,10 +231,11 @@ namespace MAT.ControleEstoque.Data.Core
             try
             {
                 connection.Open();
-                result = await connection.QueryAsync<TOutput>(
+                result = connection.Query<TOutput>(
                     commandRequest.Sql,
                     commandRequest.DynamicParameters,
                     transaction,
+                    true,
                     commandTimeout,
                     CommandType.StoredProcedure
                     );

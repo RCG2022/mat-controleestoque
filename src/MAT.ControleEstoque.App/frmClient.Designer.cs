@@ -1,6 +1,6 @@
 ﻿namespace MAT.ControleEstoque.App
 {
-    partial class frmPerson
+    partial class frmClient
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gbPerson = new System.Windows.Forms.GroupBox();
+            this.gbClient = new System.Windows.Forms.GroupBox();
             this.spanAddress = new System.Windows.Forms.Label();
             this.spanPhone = new System.Windows.Forms.Label();
             this.spanEmail = new System.Windows.Forms.Label();
@@ -48,34 +48,34 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.gbPerson.SuspendLayout();
+            this.gbClient.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gbPerson
+            // gbClient
             // 
-            this.gbPerson.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbPerson.Controls.Add(this.spanAddress);
-            this.gbPerson.Controls.Add(this.spanPhone);
-            this.gbPerson.Controls.Add(this.spanEmail);
-            this.gbPerson.Controls.Add(this.spanFullName);
-            this.gbPerson.Controls.Add(this.txtAddress);
-            this.gbPerson.Controls.Add(this.lblAddress);
-            this.gbPerson.Controls.Add(this.txtPhone);
-            this.gbPerson.Controls.Add(this.lblPhone);
-            this.gbPerson.Controls.Add(this.txtEmail);
-            this.gbPerson.Controls.Add(this.lblEmail);
-            this.gbPerson.Controls.Add(this.txtFullName);
-            this.gbPerson.Controls.Add(this.lblFullName);
-            this.gbPerson.Controls.Add(this.txtId);
-            this.gbPerson.Controls.Add(this.lblId);
-            this.gbPerson.Location = new System.Drawing.Point(12, 46);
-            this.gbPerson.Name = "gbPerson";
-            this.gbPerson.Size = new System.Drawing.Size(760, 195);
-            this.gbPerson.TabIndex = 0;
-            this.gbPerson.TabStop = false;
-            this.gbPerson.Text = "Pessoa";
+            this.gbClient.Controls.Add(this.spanAddress);
+            this.gbClient.Controls.Add(this.spanPhone);
+            this.gbClient.Controls.Add(this.spanEmail);
+            this.gbClient.Controls.Add(this.spanFullName);
+            this.gbClient.Controls.Add(this.txtAddress);
+            this.gbClient.Controls.Add(this.lblAddress);
+            this.gbClient.Controls.Add(this.txtPhone);
+            this.gbClient.Controls.Add(this.lblPhone);
+            this.gbClient.Controls.Add(this.txtEmail);
+            this.gbClient.Controls.Add(this.lblEmail);
+            this.gbClient.Controls.Add(this.txtFullName);
+            this.gbClient.Controls.Add(this.lblFullName);
+            this.gbClient.Controls.Add(this.txtId);
+            this.gbClient.Controls.Add(this.lblId);
+            this.gbClient.Location = new System.Drawing.Point(12, 46);
+            this.gbClient.Name = "gbClient";
+            this.gbClient.Size = new System.Drawing.Size(760, 195);
+            this.gbClient.TabIndex = 0;
+            this.gbClient.TabStop = false;
+            this.gbClient.Text = "Pessoa";
             // 
             // spanAddress
             // 
@@ -255,22 +255,22 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // frmPerson
+            // frmClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.gbPerson);
+            this.Controls.Add(this.gbClient);
             this.MinimumSize = new System.Drawing.Size(800, 600);
-            this.Name = "frmPerson";
+            this.Name = "frmClient";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de pessoas";
-            this.Load += new System.EventHandler(this.frmPerson_Load);
-            this.gbPerson.ResumeLayout(false);
-            this.gbPerson.PerformLayout();
+            this.Load += new System.EventHandler(this.frmClient_Load);
+            this.gbClient.ResumeLayout(false);
+            this.gbClient.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -278,7 +278,7 @@
 
         #endregion
 
-        private GroupBox gbPerson;
+        private GroupBox gbClient;
         private TextBox txtId;
         private Label lblId;
         private TextBox txtAddress;

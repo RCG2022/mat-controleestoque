@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace MAT.ControleEstoque.Business.ValueObjects.Person
+namespace MAT.ControleEstoque.Business.ValueObjects.Client
 {
     public class Address
     {

@@ -1,6 +1,6 @@
 using MAT.ControleEstoque.Business.Entities;
 using MAT.ControleEstoque.Business.Interfaces;
-using MAT.ControleEstoque.Business.ValueObjects.Person;
+using MAT.ControleEstoque.Business.ValueObjects.Client;
 using MAT.ControleEstoque.Data.Builder;
 using MAT.ControleEstoque.Data.Configurations;
 using MAT.ControleEstoque.Data.Core;
@@ -8,11 +8,11 @@ using MAT.ControleEstoque.Data.Repositories;
 
 namespace MAT.ControleEstoque.App
 {
-    public partial class frmPerson : Form
+    public partial class frmClient : Form
     {
-        IPersonRepository _personRepository;
+        IClientRepository _clientRepository;
 
-        public frmPerson()
+        public frmClient()
         {
             var dbConfig = new DbConfig
             {
@@ -21,9 +21,9 @@ namespace MAT.ControleEstoque.App
             };
 
             var dbService = new DbService(dbConfig);
-            var personBuilder = new PersonBuilder(dbService);
+            var clientBuilder = new ClientBuilder(dbService);
 
-            _personRepository = new PersonRepository(dbService, personBuilder);
+            _clientRepository = new ClientRepository(dbService, clientBuilder);
 
             InitializeComponent();
         }
@@ -113,12 +113,12 @@ namespace MAT.ControleEstoque.App
             this.Close();
         }
 
-        private void frmPerson_Load(object sender, EventArgs e)
+        private void frmClient_Load(object sender, EventArgs e)
         {
             ClearSpans();
         }
 
-        private async void btnAdd_Click(object sender, EventArgs e)
+        private  void btnAdd_Click(object sender, EventArgs e)
         {
             ClearSpans();
 
@@ -130,7 +130,7 @@ namespace MAT.ControleEstoque.App
             if (fullname is null || email is null || phone is null || address is null)
                 return;
 
-            var person = new Person(
+            var client = new Client(
                 Guid.NewGuid(),
                 fullname,
                 email,
@@ -138,7 +138,7 @@ namespace MAT.ControleEstoque.App
                 address
                 );
 
-            await _personRepository.Add(person);
+            _clientRepository.Insert(client);
 
             MessageBox.Show("O cliente foi adicionado com sucesso.");
         }

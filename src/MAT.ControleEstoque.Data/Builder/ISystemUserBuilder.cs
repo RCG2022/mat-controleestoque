@@ -9,7 +9,7 @@ namespace MAT.ControleEstoque.Data.Builder
 
         public Request FindByLoginRequest(string Login);
 
-        public Request UpdateRequest(PersonView person);
+        public Request UpdateRequest(ClientView client);
     }
 }
 

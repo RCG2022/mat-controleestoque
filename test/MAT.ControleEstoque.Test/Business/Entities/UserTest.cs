@@ -12,26 +12,26 @@ namespace MAT.ControleEstoque.Test.Business.Entities
         {
             // Arrange
             var id = Guid.NewGuid();
-            var idPerson = Guid.NewGuid();
+            var idClient = Guid.NewGuid();
             var login = "rauny";
             var password = "Rafael@123";
             var enabled = true;
 
             // Act
-            var person = new User(
+            var client = new User(
                 id,
-                idPerson,
+                idClient,
                 login,
                 password,
                 enabled
                 );
 
             // Assert
-            Assert.True(person.Id == id);
-            Assert.True(person.IdPerson == idPerson);
-            Assert.True(person.Login.Value == login);
-            Assert.True(person.Password.Value == Utils.Encript(password));
-            Assert.True(person.Enabled == enabled);
+            Assert.True(client.Id == id);
+            Assert.True(client.IdClient == idClient);
+            Assert.True(client.Login.Value == login);
+            Assert.True(client.Password.Value == Utils.Encript(password));
+            Assert.True(client.Enabled == enabled);
         }
     }
 }

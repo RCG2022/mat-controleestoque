@@ -10,17 +10,27 @@ namespace MAT.ControleEstoque.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public List<User> FindAll(string login)
+        public IEnumerable<User> FindAll(string login)
         {
             throw new NotImplementedException();
         }
 
-        public void Add(User user)
+        public User Login(string login, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(User user)
         {
             throw new NotImplementedException();
         }
 
         public void Update(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdatePassword(Guid id, string password, string newPassword)
         {
             throw new NotImplementedException();
         }

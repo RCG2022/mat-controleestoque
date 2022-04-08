@@ -1,6 +1,6 @@
 ﻿namespace MAT.ControleEstoque.Data.View
 {
-    public  class PersonView
+    public  class ClientView
     {
         public Guid Id { get; set; }
 

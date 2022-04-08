@@ -20,7 +20,7 @@ namespace MAT.ControleEstoque.Data.Builder
         public Request FindByLoginRequest(string login)
         {
             login = $"%{login}%";
-            var sql = FindByLoginSql();
+            var sql = LoginSql();
             var parameters = new DynamicParameters();
             parameters.Add(PARAM_LOGIN, login, DbType.String, ParameterDirection.Input);
 
@@ -38,7 +38,7 @@ namespace MAT.ControleEstoque.Data.Builder
             return new Request(sql, parameters);
         }
 
-        public Request UpdateRequest(PersonView person)
+        public Request UpdateRequest(ClientView client)
         {
             throw new NotImplementedException();
         }

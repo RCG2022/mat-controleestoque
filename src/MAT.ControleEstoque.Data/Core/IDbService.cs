@@ -8,23 +8,23 @@ namespace MAT.ControleEstoque.Data.Core
 
         IDbConnection CreateConnection();
 
-        Task<IEnumerable<TOutput>> ExecuteQueryRequestAsync<TOutput>(Request queryRequest);
+        public IEnumerable<TOutput> ExecuteQueryRequest<TOutput>(Request queryRequest);
 
-        Task<TOutput> ExecuteQueryFirstOrDefaultAsync<TOutput>(Request queryRequest);
+        public TOutput ExecuteQueryFirstOrDefault<TOutput>(Request queryRequest);
 
-        Task ExecuteCommandRequestAsync(Request commandRequests);
+        public void ExecuteCommandRequest(Request commandRequests);
 
-        Task ExecuteCommandRequestAsync(IEnumerable<Request> commandRequests);
+        public void ExecuteCommandRequest(IEnumerable<Request> commandRequests);
 
-        Task<int> ExecuteCommandRowsRequestAsync(IEnumerable<Request> commandRequests);
+        public int ExecuteCommandRowsRequest(IEnumerable<Request> commandRequests);
 
-        Task ExecuteProcedureRequestAsync(
+        void ExecuteProcedureRequest(
             IEnumerable<Request> commandRequests,
             IDbTransaction? transaction = null,
             int? commandTimeout = null
             );
 
-        Task<IEnumerable<TOutput>> ExecuteProcedureRequestAsync<TOutput>(
+        IEnumerable<TOutput> ExecuteProcedureRequest<TOutput>(
             Request commandRequest,
             IDbTransaction? transaction = null,
             int? commandTimeout = null
