@@ -1,7 +1,10 @@
-﻿using MAT.ControleEstoque.Data.Builder;
+﻿using MAT.ControleEstoque.Business.Entities;
+using MAT.ControleEstoque.Business.ValueObjects.User;
+using MAT.ControleEstoque.Data.Builder;
 using MAT.ControleEstoque.Data.Configurations;
 using MAT.ControleEstoque.Data.Core;
 using MAT.ControleEstoque.Data.Repositories;
+using System;
 using Xunit;
 
 namespace MAT.ControleEstoque.Test.Data
@@ -22,6 +25,16 @@ namespace MAT.ControleEstoque.Test.Data
             var userBuilder = new SystemUserBuilder(dbService);
 
             _userRepository = new UserRepository(dbService, userBuilder);
+        }
+
+        private User CreateUser()
+        {
+            return new User(
+                new Guid("122f77e6-6549-417a-80a3-82c9056c34cc"),
+                new Login("RAUNYSMZZ"),
+                new Password("paula@123"),
+                true
+                );
         }
 
         [Fact]
