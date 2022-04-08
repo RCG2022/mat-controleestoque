@@ -17,8 +17,8 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public User(
             Guid id,
-            Login login, 
-            Password password, 
+            Login login,
+            Password password,
             bool enabled
             )
         {

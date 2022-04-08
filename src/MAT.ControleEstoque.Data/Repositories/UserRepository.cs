@@ -29,7 +29,6 @@ namespace MAT.ControleEstoque.Data.Repositories
             var user = new User(
                 userView.Id,
                 new Login(userView.Login),
-                new Password(userView.Password),
                 userView.Enabled
                 );
 
@@ -47,7 +46,6 @@ namespace MAT.ControleEstoque.Data.Repositories
                 var user = new User(
                  userView.Id,
                  new Login(userView.Login),
-                 new Password(userView.Password),
                  userView.Enabled
                  );
 
@@ -91,8 +89,7 @@ namespace MAT.ControleEstoque.Data.Repositories
         {
             var userView = new SystemUserView();
             userView.Id = user.Id;
-            userView.Login = user.Login.Value;
-            userView.Password = user.Password.Value;
+            userView.Login = user.Login.Value;         
             userView.Enabled = user.Enabled;
 
             var request = _userBuilder.UpdateRequest(userView);
