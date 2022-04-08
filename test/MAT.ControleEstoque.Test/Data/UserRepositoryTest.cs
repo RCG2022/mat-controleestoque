@@ -33,7 +33,7 @@ namespace MAT.ControleEstoque.Test.Data
         {
             return new User(
                 new Guid("122f77e6-6549-417a-80a3-82c9056c34cc"),
-                new Login("RAUNYSMZZ"),
+                new Login("ADMIN"),
                 new Password("Paula@123"),
                 true
                 );
@@ -65,7 +65,7 @@ namespace MAT.ControleEstoque.Test.Data
             var User = CreateUser();
 
             // Act
-            var result = _userRepository.FindAll("rauny").ToList();
+            var result = _userRepository.FindAll("ADMIN").ToList();
 
             // Assert
             Assert.True(result.Any());
