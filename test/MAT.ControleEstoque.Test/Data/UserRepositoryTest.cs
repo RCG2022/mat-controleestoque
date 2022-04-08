@@ -71,7 +71,7 @@ namespace MAT.ControleEstoque.Test.Data
             Assert.True(result.Any());
             Assert.True(result[0].Id == User.Id);
             Assert.True(result[0].Login.Value == User.Login.Value);
-        } 
+        }
 
         [Fact]
         public void Login()
@@ -82,7 +82,7 @@ namespace MAT.ControleEstoque.Test.Data
 
             // Assert
         }
-
+        
         [Fact]
         public void InsertSql()
         {
