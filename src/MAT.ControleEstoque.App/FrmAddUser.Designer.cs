@@ -1,6 +1,6 @@
 ﻿namespace MAT.ControleEstoque.App
 {
-    partial class FrmAddUser
+    partial class frmAddUser
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // FrmAddUser
+            // frmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(829, 474);
-            this.Name = "FrmAddUser";
+            this.Name = "frmAddUser";
             this.Text = "FrmAddUser";
             this.ResumeLayout(false);
 

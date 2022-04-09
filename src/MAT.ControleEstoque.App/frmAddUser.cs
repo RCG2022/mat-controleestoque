@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MAT.ControleEstoque.App
 {
-    public partial class FrmAddUser : Form
+    public partial class frmAddUser : Form
     {
-        public FrmAddUser()
+        public frmAddUser()
         {
             InitializeComponent();
         }

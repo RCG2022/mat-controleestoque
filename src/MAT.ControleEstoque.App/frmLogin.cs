@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAT.ControleEstoque.Business.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace MAT.ControleEstoque.App
 {
     public partial class frmLogin : Form
     {
-        public frmLogin()
+        public frmLogin(IUserRepository userRepository)
         {
             InitializeComponent();
         }      
