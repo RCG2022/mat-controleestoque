@@ -1,26 +1,17 @@
-﻿using MAT.ControleEstoque.Business.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using MAT.ControleEstoque.App.Extensions;
+using MAT.ControleEstoque.Business.Interfaces;
+using MAT.ControleEstoque.Business.ValueObjects.User;
 
 namespace MAT.ControleEstoque.App
 {
     public partial class frmLogin : Form
     {
+        IUserRepository _userRepository;
+
         public frmLogin(IUserRepository userRepository)
         {
+            _userRepository = userRepository;
             InitializeComponent();
-        }      
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            clearSpan();
         }
 
         private void clearSpan() 
@@ -29,14 +20,88 @@ namespace MAT.ControleEstoque.App
             spanLogin.Text = string.Empty;
         }
 
-        private void btnEnter_Click(object sender, EventArgs e)
+        private Login GetLogin()
         {
-
+            try
+            {
+                return new Login(txtLogin.Text);
+            }
+            catch (ArgumentException ex)
+            {
+                spanLogin.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                FormUtils.AlertError(ex.Message, "Erro não identificado");
+            }
+            return null;
         }
 
-        private void btnEnter_MouseDown(object sender, MouseEventArgs e)
+        private Password GetPassword()
+        {
+            try
+            {
+                return new Password(txtPassword.Text);
+            }
+            catch (ArgumentException ex)
+            {
+                spanPassword.Text = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                FormUtils.AlertError(ex.Message, "Erro não identificado");
+            }
+            return null;
+        }
+
+        private void btnEnter_MouseHover(object sender, EventArgs e)
         {
             btnEnter.BackColor = Color.SteelBlue;
+        }
+
+        private void btnEnter_MouseLeave(object sender, EventArgs e)
+        {
+            btnEnter.BackColor = Color.White;
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clearSpan();
+                var login = GetLogin();
+                var password = GetPassword();
+
+                if (login is null || password is null)
+                    return;
+
+                var user = _userRepository.Login(login, password);
+
+                if (user is null)
+                {
+                    FormUtils.AlertWarning("Login ou senha invalidos", "Autenticação invalida");
+                    return;
+                }
+
+                if (!user.Enabled)
+                {
+                    FormUtils.AlertWarning($"O usuario {user.Login.Value} está desabilitado", "Usuario desabilitado");
+                    return;
+                }
+
+                this.Hide();
+
+                var form = FormUtils.GetForm<frmClient>();
+                form.Show();
+            }
+            catch (Exception ex)
+            {
+                FormUtils.AlertError(ex.Message, "Erro inesperado");
+            }
+        }
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            clearSpan();
         }
     }
 }

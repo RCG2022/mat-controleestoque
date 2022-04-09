@@ -56,9 +56,9 @@ namespace MAT.ControleEstoque.Data.Repositories
         }
 
 
-        public User Login(string login, string password)
+        public User Login(Login login, Password password)
         {
-            var request = _userBuilder.LoginRequest(login, password);
+            var request = _userBuilder.LoginRequest(login.Value, password.Value);
             var userView = _dbService.ExecuteQueryFirstOrDefault<SystemUserView>(request);
 
             if (userView is null)

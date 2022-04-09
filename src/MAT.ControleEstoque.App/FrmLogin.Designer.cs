@@ -48,7 +48,8 @@
             this.btnEnter.Text = "Entrar";
             this.btnEnter.UseVisualStyleBackColor = false;
             this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
-            this.btnEnter.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnEnter_MouseDown);
+            this.btnEnter.MouseLeave += new System.EventHandler(this.btnEnter_MouseLeave);
+            this.btnEnter.MouseHover += new System.EventHandler(this.btnEnter_MouseHover);
             // 
             // lblLogin
             // 

@@ -9,7 +9,7 @@ namespace MAT.ControleEstoque.Business.Interfaces
 
         public IEnumerable<User> FindAll(string login); 
 
-        public User Login(string login, string password); 
+        public User Login(Login login, Password password); 
 
         public void Insert(User user);
 

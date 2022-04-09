@@ -81,7 +81,7 @@ namespace MAT.ControleEstoque.Test.Data
 
             // Act
 
-            var result = _userRepository.Login(user.Login.Value, user.Password.Value);
+            var result = _userRepository.Login(user.Login, user.Password);
 
             // Assert
             Assert.True(result.Id == user.Id);
