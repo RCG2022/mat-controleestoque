@@ -1,4 +1,5 @@
 using MAT.ControleEstoque.Business.Interfaces;
+using MAT.ControleEstoque.Business.Services;
 using MAT.ControleEstoque.Data.Builder;
 using MAT.ControleEstoque.Data.Configurations;
 using MAT.ControleEstoque.Data.Core;
@@ -33,22 +34,25 @@ namespace MAT.ControleEstoque.App
             ConfigureServices(services);
 
             ServiceProvider = services.BuildServiceProvider();
-            var frmLogin = ServiceProvider.GetRequiredService<frmLogin>();
-            Application.Run(frmLogin);
+            var frm = ServiceProvider.GetRequiredService<frmLogin>();
+            Application.Run(frm);
         }
 
         private static void ConfigureServices(IServiceCollection services)
         {
             // Forms
             services.AddTransient<frmLogin>();
-            services.AddTransient<frmAddUser>();
+            services.AddTransient<frmMain>();
             services.AddTransient<frmClient>();
+
+            // Services
+            services.AddSingleton<IAppService, AppService>();
 
             // Repository
             services.AddTransient<IClientRepository, ClientRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
 
-            // Repository
+            // Builder
             services.AddTransient<IClientBuilder, ClientBuilder>();
             services.AddTransient<ISystemUserBuilder, SystemUserBuilder>();
 

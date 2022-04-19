@@ -67,6 +67,7 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(300, 23);
             this.txtLogin.TabIndex = 2;
+            this.txtLogin.Text = "admin";
             // 
             // lblPassword
             // 
@@ -85,6 +86,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(300, 23);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Text = "Paula@123";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // spanLogin

@@ -7,9 +7,11 @@ namespace MAT.ControleEstoque.App
     public partial class frmLogin : Form
     {
         IUserRepository _userRepository;
+        IAppService _appService;
 
-        public frmLogin(IUserRepository userRepository)
+        public frmLogin(IUserRepository userRepository, IAppService appService)
         {
+            _appService = appService;
             _userRepository = userRepository;
             InitializeComponent();
         }
@@ -89,9 +91,11 @@ namespace MAT.ControleEstoque.App
                     return;
                 }
 
-                this.Hide();
+                _appService.SetLoggedUser(user);
 
-                var form = FormUtils.GetForm<frmClient>();
+                this.Hide();
+                var form = FormUtils.GetForm<frmMain>();
+                form.FormClosed += (s, args) => this.Show();
                 form.Show();
             }
             catch (Exception ex)
