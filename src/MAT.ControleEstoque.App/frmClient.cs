@@ -1,3 +1,4 @@
+using MAT.ControleEstoque.App.Extensions;
 using MAT.ControleEstoque.Business.Entities;
 using MAT.ControleEstoque.Business.Interfaces;
 using MAT.ControleEstoque.Business.ValueObjects.Client;
@@ -107,6 +108,19 @@ namespace MAT.ControleEstoque.App
 
             return null;
         }
+        private void LoadClient(Client? client)
+        {
+            if (client is not null)
+            {
+                ClearSpans();
+                txtId.Text = client.Id.ToString();
+                txtFullName.Text = client.FullName.Value;
+                txtEmail.Text = client.Email.Value;
+                txtPhone.Text = client.Phone.Value;
+                txtAddress.Text = client.Address.Value;
+
+            }
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -141,6 +155,13 @@ namespace MAT.ControleEstoque.App
             _clientRepository.Insert(client);
 
             MessageBox.Show("O cliente foi adicionado com sucesso.");
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var form = FormUtils.GetForm<frmClientSearch>();
+            form.FormClosed += (s, args) => LoadClient(form.SelectedClient);
+            form.ShowDialog();
         }
     }
 }

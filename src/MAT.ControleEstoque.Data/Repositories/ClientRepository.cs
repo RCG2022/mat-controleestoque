@@ -60,6 +60,9 @@ namespace MAT.ControleEstoque.Data.Repositories
 
             var clientList = new List<Client>();
 
+            if (clientViewList is null)
+                return clientList;
+
             foreach(var clientView in clientViewList)
             {
                 var client = new Client(
