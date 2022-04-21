@@ -128,6 +128,7 @@
             this.dgvClients.RowTemplate.Height = 25;
             this.dgvClients.Size = new System.Drawing.Size(784, 536);
             this.dgvClients.TabIndex = 1;
+            this.dgvClients.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClients_CellDoubleClick);
             this.dgvClients.SelectionChanged += new System.EventHandler(this.dgvClients_SelectionChanged);
             // 
             // idDataGridViewTextBoxColumn

@@ -23,7 +23,7 @@ namespace MAT.ControleEstoque.Business.ValueObjects.Client
                 throw new ArgumentException(INVALID_EMAIL);
             }
 
-            Value = value;
+            Value = value.ToLower();
             
         }
 

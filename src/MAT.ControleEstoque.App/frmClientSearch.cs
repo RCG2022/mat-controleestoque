@@ -56,7 +56,15 @@ namespace MAT.ControleEstoque.App
         private void SelectUser()
         {
 
+            if (dgvClients.SelectedCells.Count == 1)
+            {
+                var index = dgvClients.CurrentCell.RowIndex;
+                var id = (Guid)dgvClients.Rows[index].Cells[0].Value;
+                SelectedClient = _clients.FirstOrDefault(x => x.Id == id);
+                this.Close();
+            }
         }
+
 
         private void frmClientSearch_Load(object sender, EventArgs e)
         {
@@ -71,13 +79,7 @@ namespace MAT.ControleEstoque.App
 
         private void btnSelected_Click(object sender, EventArgs e)
         {
-            if (dgvClients.SelectedCells.Count == 1)
-            {
-                var index = dgvClients.CurrentCell.RowIndex;
-                var id = (Guid)dgvClients.Rows[index].Cells[0].Value;
-                SelectedClient = _clients.FirstOrDefault(x => x.Id == id);
-                this.Close();
-            }
+            SelectUser();
         }
 
         private void dgvClients_SelectionChanged(object sender, EventArgs e)
@@ -90,6 +92,11 @@ namespace MAT.ControleEstoque.App
             {
                 btnSelected.Enabled = false;
             }
+        }
+
+        private void dgvClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectUser();
         }
     }
 }

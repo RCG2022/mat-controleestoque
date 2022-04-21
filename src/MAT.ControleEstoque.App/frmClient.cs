@@ -118,6 +118,7 @@ namespace MAT.ControleEstoque.App
                 txtEmail.Text = client.Email.Value;
                 txtPhone.Text = client.Phone.Value;
                 txtAddress.Text = client.Address.Value;
+                btnSave.Enabled = true;
 
             }
         }
@@ -162,6 +163,34 @@ namespace MAT.ControleEstoque.App
             var form = FormUtils.GetForm<frmClientSearch>();
             form.FormClosed += (s, args) => LoadClient(form.SelectedClient);
             form.ShowDialog();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            
+            ClearSpans();
+
+            var id = new Guid(txtId.Text);
+            var fullname = GetFullName();
+            var email = GetEmail();
+            var phone = GetPhone();
+            var address = GetAddress();
+
+            if (fullname is null || email is null || phone is null || address is null)
+                return;
+
+            var client = new Client(
+                id,
+                fullname,
+                email,
+                phone,
+                address
+                );
+
+            _clientRepository.Update(client);
+
+            MessageBox.Show("O cliente foi atualizado com sucesso.");
+            this.Close();
         }
     }
 }
