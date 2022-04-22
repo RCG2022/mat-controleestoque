@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace MAT.ControleEstoque.Business.ValueObjects.Person
+namespace MAT.ControleEstoque.Business.ValueObjects.Client
 {
     public class Email
     {
@@ -23,7 +23,7 @@ namespace MAT.ControleEstoque.Business.ValueObjects.Person
                 throw new ArgumentException(INVALID_EMAIL);
             }
 
-            Value = value;
+            Value = value.ToLower();
             
         }
 

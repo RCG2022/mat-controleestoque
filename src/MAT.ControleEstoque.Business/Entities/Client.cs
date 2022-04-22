@@ -1,9 +1,14 @@
-﻿using MAT.ControleEstoque.Business.ValueObjects.Person;
+﻿using MAT.ControleEstoque.Business.ValueObjects.Client;
 
 namespace MAT.ControleEstoque.Business.Entities
 {
-    public class Person
+    public class Client
     {
+        private string name;
+        private string v1;
+        private string v2;
+        private string v3;
+
         public Guid Id { get; private set; }
 
         public FullName FullName { get; protected set; }
@@ -14,22 +19,7 @@ namespace MAT.ControleEstoque.Business.Entities
 
         public Address Address { get; private set; }
 
-        public Person(
-            Guid id,
-            string fullName,
-            string email,
-            string phone,
-            string address
-        )
-        {
-            Id = id;
-            FullName = new FullName(fullName);
-            Email = new Email(email);
-            Phone = new Phone(phone);
-            Address = new Address(address);
-        }
-
-        public Person(
+        public Client(
             Guid id, 
             FullName fullName, 
             Email email, 
@@ -42,6 +32,15 @@ namespace MAT.ControleEstoque.Business.Entities
             Email = email;
             Phone = phone;
             Address = address;
+        }
+
+        public Client(Guid id, string name, string v1, string v2, string v3)
+        {
+            Id = id;
+            this.name = name;
+            this.v1 = v1;
+            this.v2 = v2;
+            this.v3 = v3;
         }
     }
 }

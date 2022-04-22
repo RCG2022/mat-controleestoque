@@ -1,5 +1,5 @@
 ﻿using Deviot.Common;
-using MAT.ControleEstoque.Business.ValueObjects.Person;
+using MAT.ControleEstoque.Business.ValueObjects.Client;
 using System;
 using Xunit;
 

@@ -1,6 +1,7 @@
-﻿namespace MAT.ControleEstoque.Data.View
+﻿
+namespace MAT.ControleEstoque.App.ViewModel
 {
-    public  class PersonView
+    public class ClientViewModel
     {
         public Guid Id { get; set; }
 
@@ -8,7 +9,7 @@
 
         public string Email { get; set; }
 
-        public string Telephone { get; set; }
+        public string Phone { get; set; }
 
         public string Address { get; set; }
     }

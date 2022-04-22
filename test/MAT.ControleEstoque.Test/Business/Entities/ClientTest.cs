@@ -1,11 +1,11 @@
 ﻿using MAT.ControleEstoque.Business.Entities;
-using MAT.ControleEstoque.Business.ValueObjects.Person;
+using MAT.ControleEstoque.Business.ValueObjects.Client;
 using System;
 using Xunit;
 
 namespace MAT.ControleEstoque.Test.Business.Entities
 {
-    public class PersonTest
+    public class ClientTest
     {
         [Fact]
         public void ValidateEntity()
@@ -18,20 +18,20 @@ namespace MAT.ControleEstoque.Test.Business.Entities
             var address = "Rua Domingos de Braga, 200";
 
             // Act
-            var person = new Person(
+            var client = new Client(
                 id,
-                fullName,
-                email,
-                phone,
-                address
+                new FullName(fullName),
+                new Email(email),
+                new Phone(phone),
+                new Address(address)
                 );
 
             // Assert
-            Assert.True(person.Id == id);
-            Assert.True(person.FullName.Value == fullName);
-            Assert.True(person.Email.Value == email);
-            Assert.True(person.Phone.Value == phone);
-            Assert.True(person.Address.Value == address);
+            Assert.True(client.Id == id);
+            Assert.True(client.FullName.Value == fullName);
+            Assert.True(client.Email.Value == email);
+            Assert.True(client.Phone.Value == phone);
+            Assert.True(client.Address.Value == address);
         }
     }
 }

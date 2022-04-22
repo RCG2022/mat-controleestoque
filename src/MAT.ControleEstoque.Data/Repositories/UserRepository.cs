@@ -1,28 +1,105 @@
 ﻿using MAT.ControleEstoque.Business.Entities;
 using MAT.ControleEstoque.Business.Interfaces;
+using MAT.ControleEstoque.Business.ValueObjects.User;
+using MAT.ControleEstoque.Data.Builder;
+using MAT.ControleEstoque.Data.Core;
+using MAT.ControleEstoque.Data.View;
 
 namespace MAT.ControleEstoque.Data.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        public User Find(Guid id)
+        protected readonly IDbService _dbService;
+        private readonly ISystemUserBuilder _userBuilder;
+
+        public UserRepository(IDbService dbService, ISystemUserBuilder userBuilder)
         {
-            throw new NotImplementedException();
+            _dbService = dbService;
+            _userBuilder = userBuilder;
         }
 
-        public List<User> FindAll(string login)
+        public User FindById(Guid id)
         {
-            throw new NotImplementedException();
+            var request = _userBuilder.FindByIdRequest(id);
+            var userView = _dbService.ExecuteQueryFirstOrDefault<SystemUserView>(request);
+
+            if (userView is null)
+                return null;
+
+            var user = new User(
+                userView.Id,
+                new Login(userView.Login),
+                userView.Enabled
+                );
+
+            return user;
         }
 
-        public void Add(User user)
+        public IEnumerable<User> FindAll(string login)
         {
-            throw new NotImplementedException();
+            var request = _userBuilder.FindAllRequest(login);
+            var userViewList = _dbService.ExecuteQueryRequest<SystemUserView>(request);
+
+            var userList = new List<User>();
+            foreach (var userView in userViewList)
+            {
+                var user = new User(
+                 userView.Id,
+                 new Login(userView.Login),
+                 userView.Enabled
+                 );
+
+                userList.Add(user);
+            }
+
+            return userList;
+        }
+
+
+        public User Login(Login login, Password password)
+        {
+            var request = _userBuilder.LoginRequest(login.Value, password.Value);
+            var userView = _dbService.ExecuteQueryFirstOrDefault<SystemUserView>(request);
+
+            if (userView is null)
+                return null;
+
+            var user = new User(
+                userView.Id,
+                new Login(userView.Login),
+                userView.Enabled
+                );
+
+            return user;
+        }
+
+        public void Insert(User user)
+        {
+            var userView = new SystemUserView();
+            userView.Id = user.Id;
+            userView.Login = user.Login.Value;
+            userView.Password = user.Password.Value;
+            userView.Enabled = user.Enabled;
+
+            var request = _userBuilder.InsertRequest(userView);
+            _dbService.ExecuteCommandRequest(request);
         }
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            var userView = new SystemUserView();
+            userView.Id = user.Id;
+            userView.Login = user.Login.Value;         
+            userView.Enabled = user.Enabled;
+
+            var request = _userBuilder.UpdateRequest(userView);
+            _dbService.ExecuteCommandRequest(request);
+        }
+
+        public void UpdatePassword(Guid id, Password password)
+        {
+            var request = _userBuilder.UpdatePasswordRequest(id, password.Value);
+            _dbService.ExecuteCommandRequest(request);
         }
     }
 }
