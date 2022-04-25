@@ -75,26 +75,27 @@
             // menuItemUser
             // 
             this.menuItemUser.Name = "menuItemUser";
-            this.menuItemUser.Size = new System.Drawing.Size(143, 22);
+            this.menuItemUser.Size = new System.Drawing.Size(180, 22);
             this.menuItemUser.Text = "Usuários";
+            this.menuItemUser.Click += new System.EventHandler(this.menuItemUser_Click);
             // 
             // menuItemClient
             // 
             this.menuItemClient.Name = "menuItemClient";
-            this.menuItemClient.Size = new System.Drawing.Size(143, 22);
+            this.menuItemClient.Size = new System.Drawing.Size(180, 22);
             this.menuItemClient.Text = "Clientes";
             this.menuItemClient.Click += new System.EventHandler(this.menuItemClient_Click);
             // 
             // menuItemChangePassword
             // 
             this.menuItemChangePassword.Name = "menuItemChangePassword";
-            this.menuItemChangePassword.Size = new System.Drawing.Size(143, 22);
+            this.menuItemChangePassword.Size = new System.Drawing.Size(180, 22);
             this.menuItemChangePassword.Text = "Alterar senha";
             // 
             // menuItemClose
             // 
             this.menuItemClose.Name = "menuItemClose";
-            this.menuItemClose.Size = new System.Drawing.Size(143, 22);
+            this.menuItemClose.Size = new System.Drawing.Size(180, 22);
             this.menuItemClose.Text = "Sair";
             this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
             // 

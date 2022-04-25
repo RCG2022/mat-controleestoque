@@ -52,5 +52,10 @@ namespace MAT.ControleEstoque.App
         {
             txtUser.Text = _appService.GetLoggedUser().Login.Value;
         }
+
+        private void menuItemUser_Click(object sender, EventArgs e)
+        {
+           AddTabPage<frmUser>("Usuario");
+        }
     }
 }
