@@ -133,8 +133,12 @@ namespace MAT.ControleEstoque.App
             ClearSpans();
         }
 
-        private  void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)    
         {
+            var userOption = MessageBox.Show("Deseja adicionar um novo cliente? ", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (userOption == DialogResult.No)
+                return;
+
             ClearSpans();
 
             var fullname = GetFullName();
@@ -151,14 +155,14 @@ namespace MAT.ControleEstoque.App
                 email,
                 phone,
                 address
-                );
-
+                ); 
+            
             _clientRepository.Insert(client);
 
-            MessageBox.Show("O cliente foi adicionado com sucesso.");
+            MessageBox.Show("Cliente adicionado com sucesso.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)        
         {
             var form = FormUtils.GetForm<frmClientSearch>();
             form.FormClosed += (s, args) => LoadClient(form.SelectedClient);
@@ -166,9 +170,12 @@ namespace MAT.ControleEstoque.App
         }
 
         private void btnSave_Click(object sender, EventArgs e)
-        {
-            
+        {   
             ClearSpans();
+
+            var userOption = MessageBox.Show("Deseja atualizar os dados do cliente? ", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (userOption == DialogResult.No)
+                return;
 
             var id = new Guid(txtId.Text);
             var fullname = GetFullName();
@@ -189,8 +196,8 @@ namespace MAT.ControleEstoque.App
 
             _clientRepository.Update(client);
 
-            MessageBox.Show("O cliente foi atualizado com sucesso.");
-            this.Close();
+            MessageBox.Show("Cliente atualizado com sucesso.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }
