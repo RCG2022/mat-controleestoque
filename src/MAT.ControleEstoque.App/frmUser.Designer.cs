@@ -37,9 +37,9 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Fechar";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSearch
             // 
@@ -143,14 +144,13 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Status:";
             // 
-            // txtPassword
+            // textBox2
             // 
-            this.txtPassword.BackColor = System.Drawing.Color.White;
-            this.txtPassword.Location = new System.Drawing.Point(77, 86);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.ReadOnly = true;
-            this.txtPassword.Size = new System.Drawing.Size(300, 23);
-            this.txtPassword.TabIndex = 7;
+            this.textBox2.Location = new System.Drawing.Point(77, 86);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(300, 23);
+            this.textBox2.TabIndex = 7;
             // 
             // lblPassword
             // 
@@ -161,14 +161,13 @@
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "Senha:";
             // 
-            // txtLogin
+            // textBox1
             // 
-            this.txtLogin.BackColor = System.Drawing.Color.White;
-            this.txtLogin.Location = new System.Drawing.Point(77, 57);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.ReadOnly = true;
-            this.txtLogin.Size = new System.Drawing.Size(300, 23);
-            this.txtLogin.TabIndex = 5;
+            this.textBox1.Location = new System.Drawing.Point(77, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(300, 23);
+            this.textBox1.TabIndex = 5;
             // 
             // lblLogin
             // 
@@ -185,7 +184,7 @@
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(300, 23);
-            this.txtId.TabIndex = 1;
+            this.txtId.TabIndex = 3;
             // 
             // lblId
             // 
