@@ -41,8 +41,6 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -99,8 +97,6 @@
             // 
             // gbUser
             // 
-            this.gbUser.Controls.Add(this.txtPassword);
-            this.gbUser.Controls.Add(this.txtLogin);
             this.gbUser.Controls.Add(this.checkBox2);
             this.gbUser.Controls.Add(this.checkBox1);
             this.gbUser.Controls.Add(this.label1);
@@ -181,17 +177,7 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(77, 57);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(300, 23);
-            this.txtLogin.TabIndex = 6;
-            // 
             // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(77, 86);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(300, 23);
-            this.txtPassword.TabIndex = 11;
             // 
             // frmUser
             // 
@@ -230,7 +216,5 @@
         private CheckBox checkBox2;
         private CheckBox checkBox1;
         private Label label1;
-        private TextBox txtPassword;
-        private TextBox txtLogin;
     }
 }
