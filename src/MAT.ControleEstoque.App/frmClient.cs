@@ -160,6 +160,8 @@ namespace MAT.ControleEstoque.App
             _clientRepository.Insert(client);
 
             MessageBox.Show("Cliente adicionado com sucesso.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)        
@@ -197,6 +199,8 @@ namespace MAT.ControleEstoque.App
             _clientRepository.Update(client);
 
             MessageBox.Show("Cliente atualizado com sucesso.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
 
         }
     }
