@@ -34,15 +34,15 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbUser = new System.Windows.Forms.GroupBox();
+            this.txtlogin = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblLogin = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.txtPasword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,7 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Fechar";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSearch
             // 
@@ -76,10 +77,11 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(259, 15);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 0;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
@@ -97,12 +99,12 @@
             // 
             // gbUser
             // 
+            this.gbUser.Controls.Add(this.txtPasword);
+            this.gbUser.Controls.Add(this.txtlogin);
             this.gbUser.Controls.Add(this.checkBox2);
             this.gbUser.Controls.Add(this.checkBox1);
             this.gbUser.Controls.Add(this.label1);
-            this.gbUser.Controls.Add(this.textBox2);
             this.gbUser.Controls.Add(this.lblPassword);
-            this.gbUser.Controls.Add(this.textBox1);
             this.gbUser.Controls.Add(this.lblLogin);
             this.gbUser.Controls.Add(this.txtId);
             this.gbUser.Controls.Add(this.lblId);
@@ -112,6 +114,60 @@
             this.gbUser.TabIndex = 2;
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
+            // 
+            // txtlogin
+            // 
+            this.txtlogin.Location = new System.Drawing.Point(77, 61);
+            this.txtlogin.Name = "txtlogin";
+            this.txtlogin.Size = new System.Drawing.Size(300, 23);
+            this.txtlogin.TabIndex = 11;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(161, 119);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(91, 19);
+            this.checkBox2.TabIndex = 10;
+            this.checkBox2.Text = "Desabilitado";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(77, 119);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(81, 19);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Habilitado";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Status:";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(29, 94);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(42, 15);
+            this.lblPassword.TabIndex = 6;
+            this.lblPassword.Text = "Senha:";
+            // 
+            // lblLogin
+            // 
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Location = new System.Drawing.Point(31, 65);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(40, 15);
+            this.lblLogin.TabIndex = 4;
+            this.lblLogin.Text = "Login:";
             // 
             // txtId
             // 
@@ -130,68 +186,12 @@
             this.lblId.TabIndex = 2;
             this.lblId.Text = "Id:";
             // 
-            // textBox1
+            // txtPasword
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(300, 23);
-            this.textBox1.TabIndex = 5;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(31, 65);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(40, 15);
-            this.lblLogin.TabIndex = 4;
-            this.lblLogin.Text = "Login:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(77, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(300, 23);
-            this.textBox2.TabIndex = 7;
-            // 
-            // lblPassword
-            // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(29, 94);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(42, 15);
-            this.lblPassword.TabIndex = 6;
-            this.lblPassword.Text = "Senha:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 15);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Status:";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(77, 119);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 19);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Habilitado";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(161, 119);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 19);
-            this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Desabilitado";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.txtPasword.Location = new System.Drawing.Point(77, 90);
+            this.txtPasword.Name = "txtPasword";
+            this.txtPasword.Size = new System.Drawing.Size(300, 23);
+            this.txtPasword.TabIndex = 12;
             // 
             // frmUser
             // 
@@ -223,12 +223,13 @@
         private GroupBox gbUser;
         private TextBox txtId;
         private Label lblId;
-        private TextBox textBox2;
         private Label lblPassword;
-        private TextBox textBox1;
+        private TextBox txtLogin;
         private Label lblLogin;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
         private Label label1;
+        private TextBox txtlogin;
+        private TextBox txtPasword;
     }
 }
