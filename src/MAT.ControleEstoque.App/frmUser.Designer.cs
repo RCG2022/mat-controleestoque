@@ -34,15 +34,15 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbUser = new System.Windows.Forms.GroupBox();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblLogin = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblLogin = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +55,7 @@
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Fechar";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSearch
             // 
@@ -113,39 +114,34 @@
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
             // 
-            // txtId
+            // checkBox2
             // 
-            this.txtId.Location = new System.Drawing.Point(77, 28);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(300, 23);
-            this.txtId.TabIndex = 3;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(161, 119);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(91, 19);
+            this.checkBox2.TabIndex = 10;
+            this.checkBox2.Text = "Desabilitado";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // lblId
+            // checkBox1
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(51, 36);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(20, 15);
-            this.lblId.TabIndex = 2;
-            this.lblId.Text = "Id:";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(77, 119);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(81, 19);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.Text = "Habilitado";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(300, 23);
-            this.textBox1.TabIndex = 5;
-            // 
-            // lblLogin
-            // 
-            this.lblLogin.AutoSize = true;
-            this.lblLogin.Location = new System.Drawing.Point(31, 65);
-            this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(40, 15);
-            this.lblLogin.TabIndex = 4;
-            this.lblLogin.Text = "Login:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 15);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Status:";
             // 
             // textBox2
             // 
@@ -164,34 +160,39 @@
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "Senha:";
             // 
-            // label1
+            // textBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 15);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Status:";
+            this.textBox1.Location = new System.Drawing.Point(77, 57);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(300, 23);
+            this.textBox1.TabIndex = 5;
             // 
-            // checkBox1
+            // lblLogin
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(77, 119);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 19);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Habilitado";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.lblLogin.AutoSize = true;
+            this.lblLogin.Location = new System.Drawing.Point(31, 65);
+            this.lblLogin.Name = "lblLogin";
+            this.lblLogin.Size = new System.Drawing.Size(40, 15);
+            this.lblLogin.TabIndex = 4;
+            this.lblLogin.Text = "Login:";
             // 
-            // checkBox2
+            // txtId
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(161, 119);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 19);
-            this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Desabilitado";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.txtId.Location = new System.Drawing.Point(77, 28);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(300, 23);
+            this.txtId.TabIndex = 3;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(51, 36);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(20, 15);
+            this.lblId.TabIndex = 2;
+            this.lblId.Text = "Id:";
             // 
             // frmUser
             // 
