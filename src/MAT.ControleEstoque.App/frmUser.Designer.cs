@@ -181,14 +181,14 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(77, 62);
+            this.txtLogin.Location = new System.Drawing.Point(77, 57);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(300, 23);
             this.txtLogin.TabIndex = 11;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(77, 90);
+            this.txtPassword.Location = new System.Drawing.Point(77, 86);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 23);
             this.txtPassword.TabIndex = 12;
