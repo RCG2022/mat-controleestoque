@@ -41,7 +41,7 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.txtlogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
@@ -100,7 +100,7 @@
             // gbUser
             // 
             this.gbUser.Controls.Add(this.txtPassword);
-            this.gbUser.Controls.Add(this.txtLogin);
+            this.gbUser.Controls.Add(this.txtlogin);
             this.gbUser.Controls.Add(this.checkBox2);
             this.gbUser.Controls.Add(this.checkBox1);
             this.gbUser.Controls.Add(this.label1);
@@ -179,16 +179,16 @@
             this.lblId.TabIndex = 2;
             this.lblId.Text = "Id:";
             // 
-            // txtLogin
+            // txtlogin
             // 
-            this.txtLogin.Location = new System.Drawing.Point(77, 57);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(300, 23);
-            this.txtLogin.TabIndex = 11;
+            this.txtlogin.Location = new System.Drawing.Point(77, 61);
+            this.txtlogin.Name = "txtlogin";
+            this.txtlogin.Size = new System.Drawing.Size(300, 23);
+            this.txtlogin.TabIndex = 11;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(77, 86);
+            this.txtPassword.Location = new System.Drawing.Point(77, 94);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 23);
             this.txtPassword.TabIndex = 12;
@@ -231,6 +231,6 @@
         private CheckBox checkBox1;
         private Label label1;
         private TextBox txtPassword;
-        private TextBox txtLogin;
+        private TextBox txtlogin;
     }
 }
