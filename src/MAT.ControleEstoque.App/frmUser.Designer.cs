@@ -34,6 +34,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbUser = new System.Windows.Forms.GroupBox();
+            this.txtlogin = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,8 +42,7 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtlogin = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtPasword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -99,7 +99,7 @@
             // 
             // gbUser
             // 
-            this.gbUser.Controls.Add(this.txtPassword);
+            this.gbUser.Controls.Add(this.txtPasword);
             this.gbUser.Controls.Add(this.txtlogin);
             this.gbUser.Controls.Add(this.checkBox2);
             this.gbUser.Controls.Add(this.checkBox1);
@@ -114,6 +114,13 @@
             this.gbUser.TabIndex = 2;
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
+            // 
+            // txtlogin
+            // 
+            this.txtlogin.Location = new System.Drawing.Point(77, 61);
+            this.txtlogin.Name = "txtlogin";
+            this.txtlogin.Size = new System.Drawing.Size(300, 23);
+            this.txtlogin.TabIndex = 11;
             // 
             // checkBox2
             // 
@@ -179,19 +186,12 @@
             this.lblId.TabIndex = 2;
             this.lblId.Text = "Id:";
             // 
-            // txtlogin
+            // txtPasword
             // 
-            this.txtlogin.Location = new System.Drawing.Point(77, 61);
-            this.txtlogin.Name = "txtlogin";
-            this.txtlogin.Size = new System.Drawing.Size(300, 23);
-            this.txtlogin.TabIndex = 11;
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(77, 94);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(300, 23);
-            this.txtPassword.TabIndex = 12;
+            this.txtPasword.Location = new System.Drawing.Point(77, 90);
+            this.txtPasword.Name = "txtPasword";
+            this.txtPasword.Size = new System.Drawing.Size(300, 23);
+            this.txtPasword.TabIndex = 12;
             // 
             // frmUser
             // 
@@ -223,14 +223,13 @@
         private GroupBox gbUser;
         private TextBox txtId;
         private Label lblId;
-        private TextBox txtPassword;
         private Label lblPassword;
         private TextBox txtLogin;
         private Label lblLogin;
         private CheckBox checkBox2;
         private CheckBox checkBox1;
         private Label label1;
-        private TextBox txtPassword;
         private TextBox txtlogin;
+        private TextBox txtPasword;
     }
 }
