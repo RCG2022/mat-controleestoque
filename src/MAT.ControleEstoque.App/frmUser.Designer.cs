@@ -37,12 +37,12 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -99,12 +99,12 @@
             // 
             // gbUser
             // 
+            this.gbUser.Controls.Add(this.txtPassword);
+            this.gbUser.Controls.Add(this.txtLogin);
             this.gbUser.Controls.Add(this.checkBox2);
             this.gbUser.Controls.Add(this.checkBox1);
             this.gbUser.Controls.Add(this.label1);
-            this.gbUser.Controls.Add(this.txtPassword);
             this.gbUser.Controls.Add(this.lblPassword);
-            this.gbUser.Controls.Add(this.txtLogin);
             this.gbUser.Controls.Add(this.lblLogin);
             this.gbUser.Controls.Add(this.txtId);
             this.gbUser.Controls.Add(this.lblId);
@@ -144,14 +144,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Status:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(77, 86);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(300, 23);
-            this.textBox2.TabIndex = 7;
-            // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
@@ -160,14 +152,6 @@
             this.lblPassword.Size = new System.Drawing.Size(42, 15);
             this.lblPassword.TabIndex = 6;
             this.lblPassword.Text = "Senha:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(77, 57);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(300, 23);
-            this.textBox1.TabIndex = 5;
             // 
             // lblLogin
             // 
@@ -194,6 +178,22 @@
             this.lblId.Size = new System.Drawing.Size(20, 15);
             this.lblId.TabIndex = 2;
             this.lblId.Text = "Id:";
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.BackColor = System.Drawing.Color.White;
+            this.txtLogin.Location = new System.Drawing.Point(77, 62);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(300, 23);
+            this.txtLogin.TabIndex = 11;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.White;
+            this.txtPassword.Location = new System.Drawing.Point(77, 91);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(300, 23);
+            this.txtPassword.TabIndex = 12;
             // 
             // frmUser
             // 
@@ -232,5 +232,7 @@
         private CheckBox checkBox2;
         private CheckBox checkBox1;
         private Label label1;
+        private TextBox txtPassword;
+        private TextBox txtLogin;
     }
 }
