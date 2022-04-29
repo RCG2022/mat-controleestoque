@@ -72,7 +72,7 @@
             this.gbClient.Controls.Add(this.lblId);
             this.gbClient.Location = new System.Drawing.Point(12, 46);
             this.gbClient.Name = "gbClient";
-            this.gbClient.Size = new System.Drawing.Size(760, 195);
+            this.gbClient.Size = new System.Drawing.Size(823, 195);
             this.gbClient.TabIndex = 0;
             this.gbClient.TabStop = false;
             this.gbClient.Text = "Pessoa";
@@ -210,9 +210,9 @@
             this.groupBox2.Controls.Add(this.btnAdd);
             this.groupBox2.Controls.Add(this.btnSearch);
             this.groupBox2.Controls.Add(this.btnClose);
-            this.groupBox2.Location = new System.Drawing.Point(-2, -8);
+            this.groupBox2.Location = new System.Drawing.Point(-7, -8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(791, 45);
+            this.groupBox2.Size = new System.Drawing.Size(799, 48);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             // 
@@ -269,7 +269,7 @@
             this.Name = "frmClient";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cadastro de pessoas";
+            this.Text = "Cadastro de Clientes";
             this.Load += new System.EventHandler(this.frmClient_Load);
             this.gbClient.ResumeLayout(false);
             this.gbClient.PerformLayout();

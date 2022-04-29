@@ -34,6 +34,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbUser = new System.Windows.Forms.GroupBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtlogin = new System.Windows.Forms.TextBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -42,7 +43,6 @@
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtPasword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,7 @@
             this.btnSearch.TabIndex = 0;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
@@ -87,19 +88,23 @@
             // 
             // gbMenu
             // 
+            this.gbMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbMenu.Controls.Add(this.btnClose);
             this.gbMenu.Controls.Add(this.btnSave);
             this.gbMenu.Controls.Add(this.btnSearch);
             this.gbMenu.Controls.Add(this.btnAdd);
-            this.gbMenu.Location = new System.Drawing.Point(-2, -11);
+            this.gbMenu.Location = new System.Drawing.Point(-8, -8);
             this.gbMenu.Name = "gbMenu";
-            this.gbMenu.Size = new System.Drawing.Size(795, 48);
+            this.gbMenu.Size = new System.Drawing.Size(801, 48);
             this.gbMenu.TabIndex = 1;
             this.gbMenu.TabStop = false;
             // 
             // gbUser
             // 
-            this.gbUser.Controls.Add(this.txtPasword);
+            this.gbUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbUser.Controls.Add(this.txtPassword);
             this.gbUser.Controls.Add(this.txtlogin);
             this.gbUser.Controls.Add(this.checkBox2);
             this.gbUser.Controls.Add(this.checkBox1);
@@ -110,10 +115,17 @@
             this.gbUser.Controls.Add(this.lblId);
             this.gbUser.Location = new System.Drawing.Point(12, 46);
             this.gbUser.Name = "gbUser";
-            this.gbUser.Size = new System.Drawing.Size(760, 153);
+            this.gbUser.Size = new System.Drawing.Size(781, 153);
             this.gbUser.TabIndex = 2;
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(77, 90);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(300, 23);
+            this.txtPassword.TabIndex = 12;
             // 
             // txtlogin
             // 
@@ -186,13 +198,6 @@
             this.lblId.TabIndex = 2;
             this.lblId.Text = "Id:";
             // 
-            // txtPasword
-            // 
-            this.txtPasword.Location = new System.Drawing.Point(77, 90);
-            this.txtPasword.Name = "txtPasword";
-            this.txtPasword.Size = new System.Drawing.Size(300, 23);
-            this.txtPasword.TabIndex = 12;
-            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -230,6 +235,6 @@
         private CheckBox checkBox1;
         private Label label1;
         private TextBox txtlogin;
-        private TextBox txtPasword;
+        private TextBox txtPassword;
     }
 }
