@@ -41,6 +41,17 @@ namespace MAT.ControleEstoque.App
             var data = ConvertSystemUserViewModel(_users);
             dgvUser.DataSource = data.ToList();
         }
+        private void SelectUser()
+        {
+            if (dgvUser.SelectedCells.Count == 1)
+            {
+                var index = dgvUser.CurrentCell.RowIndex;
+                var id = (Guid)dgvUser.Rows[index].Cells[0].Value;
+                SelectedUser = _users.FirstOrDefault(x => x.Id == id);
+                this.Close();
+            }
+
+        }
 
         private void frmUserSearch_Load(object sender, EventArgs e)
         {
@@ -50,6 +61,21 @@ namespace MAT.ControleEstoque.App
         private void dgvUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            findUser();
+        }
+
+        private void btnSelected_Click(object sender, EventArgs e)
+        {
+            SelectUser();
+        }
+
+        private void dgvUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectUser();
         }
     }
 }

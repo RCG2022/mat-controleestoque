@@ -27,14 +27,14 @@ namespace MAT.ControleEstoque.App
             {
                 ClearSpans();
                 txtId.Text = user.Id.ToString();
-                txtLogin.Text = user.Login.Value;
-                txtPassword.Text = user.Password.Value;
+                txtlogin.Text = user.Login.Value;
                 btnSave.Enabled = true;
             }
         }
         private void ClearSpans()
         {
-            throw new NotImplementedException();
+            
         }
+
     }
 }

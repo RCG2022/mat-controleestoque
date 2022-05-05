@@ -68,7 +68,7 @@
             this.dgvUser.RowTemplate.Height = 25;
             this.dgvUser.Size = new System.Drawing.Size(784, 536);
             this.dgvUser.TabIndex = 1;
-            this.dgvUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellContentClick);
+            this.dgvUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellDoubleClick);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -132,6 +132,7 @@
             this.btnFilter.Size = new System.Drawing.Size(41, 22);
             this.btnFilter.Text = "Filtrar";
             this.btnFilter.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // toolStripSeparator2
             // 
@@ -145,6 +146,7 @@
             this.btnSelected.Name = "btnSelected";
             this.btnSelected.Size = new System.Drawing.Size(65, 22);
             this.btnSelected.Text = "Selecionar";
+            this.btnSelected.Click += new System.EventHandler(this.btnSelected_Click);
             // 
             // toolStrip1
             // 
