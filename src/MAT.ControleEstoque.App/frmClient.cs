@@ -108,6 +108,7 @@ namespace MAT.ControleEstoque.App
 
             return null;
         }
+
         private void LoadClient(Client? client)
         {
             if (client is not null)

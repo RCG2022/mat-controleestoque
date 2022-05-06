@@ -34,15 +34,18 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbUser = new System.Windows.Forms.GroupBox();
-            this.txtlogin = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.spanEnable = new System.Windows.Forms.Label();
+            this.spanPassword = new System.Windows.Forms.Label();
+            this.spanLogin = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.chkBoxDesabilitado = new System.Windows.Forms.CheckBox();
+            this.chkBoxHabilitado = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
-            this.txtPasword = new System.Windows.Forms.TextBox();
             this.gbMenu.SuspendLayout();
             this.gbUser.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +77,7 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Adicionar";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnSave
             // 
@@ -99,10 +103,13 @@
             // 
             // gbUser
             // 
-            this.gbUser.Controls.Add(this.txtPasword);
-            this.gbUser.Controls.Add(this.txtlogin);
-            this.gbUser.Controls.Add(this.checkBox2);
-            this.gbUser.Controls.Add(this.checkBox1);
+            this.gbUser.Controls.Add(this.spanEnable);
+            this.gbUser.Controls.Add(this.spanPassword);
+            this.gbUser.Controls.Add(this.spanLogin);
+            this.gbUser.Controls.Add(this.txtPassword);
+            this.gbUser.Controls.Add(this.txtLogin);
+            this.gbUser.Controls.Add(this.chkBoxDesabilitado);
+            this.gbUser.Controls.Add(this.chkBoxHabilitado);
             this.gbUser.Controls.Add(this.label1);
             this.gbUser.Controls.Add(this.lblPassword);
             this.gbUser.Controls.Add(this.lblLogin);
@@ -115,32 +122,75 @@
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
             // 
-            // txtlogin
+            // spanEnable
             // 
-            this.txtlogin.Location = new System.Drawing.Point(77, 61);
-            this.txtlogin.Name = "txtlogin";
-            this.txtlogin.Size = new System.Drawing.Size(300, 23);
-            this.txtlogin.TabIndex = 11;
+            this.spanEnable.AutoSize = true;
+            this.spanEnable.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.spanEnable.ForeColor = System.Drawing.Color.IndianRed;
+            this.spanEnable.Location = new System.Drawing.Point(269, 123);
+            this.spanEnable.Name = "spanEnable";
+            this.spanEnable.Size = new System.Drawing.Size(34, 15);
+            this.spanEnable.TabIndex = 15;
+            this.spanEnable.Text = "Span";
             // 
-            // checkBox2
+            // spanPassword
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(161, 119);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 19);
-            this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Desabilitado";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.spanPassword.AutoSize = true;
+            this.spanPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.spanPassword.ForeColor = System.Drawing.Color.IndianRed;
+            this.spanPassword.Location = new System.Drawing.Point(383, 96);
+            this.spanPassword.Name = "spanPassword";
+            this.spanPassword.Size = new System.Drawing.Size(34, 15);
+            this.spanPassword.TabIndex = 14;
+            this.spanPassword.Text = "Span";
             // 
-            // checkBox1
+            // spanLogin
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(77, 119);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 19);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Habilitado";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.spanLogin.AutoSize = true;
+            this.spanLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.spanLogin.ForeColor = System.Drawing.Color.IndianRed;
+            this.spanLogin.Location = new System.Drawing.Point(383, 64);
+            this.spanLogin.Name = "spanLogin";
+            this.spanLogin.Size = new System.Drawing.Size(34, 15);
+            this.spanLogin.TabIndex = 13;
+            this.spanLogin.Text = "Span";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(77, 90);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(300, 23);
+            this.txtPassword.TabIndex = 12;
+            this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(77, 61);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(300, 23);
+            this.txtLogin.TabIndex = 11;
+            // 
+            // chkBoxDesabilitado
+            // 
+            this.chkBoxDesabilitado.AutoSize = true;
+            this.chkBoxDesabilitado.Location = new System.Drawing.Point(161, 119);
+            this.chkBoxDesabilitado.Name = "chkBoxDesabilitado";
+            this.chkBoxDesabilitado.Size = new System.Drawing.Size(91, 19);
+            this.chkBoxDesabilitado.TabIndex = 10;
+            this.chkBoxDesabilitado.Text = "Desabilitado";
+            this.chkBoxDesabilitado.UseVisualStyleBackColor = true;
+            this.chkBoxDesabilitado.CheckedChanged += new System.EventHandler(this.chkBoxDesabilitado_CheckedChanged);
+            // 
+            // chkBoxHabilitado
+            // 
+            this.chkBoxHabilitado.AutoSize = true;
+            this.chkBoxHabilitado.Location = new System.Drawing.Point(77, 119);
+            this.chkBoxHabilitado.Name = "chkBoxHabilitado";
+            this.chkBoxHabilitado.Size = new System.Drawing.Size(81, 19);
+            this.chkBoxHabilitado.TabIndex = 9;
+            this.chkBoxHabilitado.Text = "Habilitado";
+            this.chkBoxHabilitado.UseVisualStyleBackColor = true;
+            this.chkBoxHabilitado.CheckedChanged += new System.EventHandler(this.chkBoxHabilitado_CheckedChanged);
             // 
             // label1
             // 
@@ -186,13 +236,6 @@
             this.lblId.TabIndex = 2;
             this.lblId.Text = "Id:";
             // 
-            // txtPasword
-            // 
-            this.txtPasword.Location = new System.Drawing.Point(77, 90);
-            this.txtPasword.Name = "txtPasword";
-            this.txtPasword.Size = new System.Drawing.Size(300, 23);
-            this.txtPasword.TabIndex = 12;
-            // 
             // frmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -206,6 +249,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuario";
+            this.Load += new System.EventHandler(this.frmUser_Load);
             this.gbMenu.ResumeLayout(false);
             this.gbUser.ResumeLayout(false);
             this.gbUser.PerformLayout();
@@ -226,10 +270,12 @@
         private Label lblPassword;
         private TextBox txtLogin;
         private Label lblLogin;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
+        private CheckBox chkBoxDesabilitado;
+        private CheckBox chkBoxHabilitado;
         private Label label1;
-        private TextBox txtlogin;
-        private TextBox txtPasword;
+        private TextBox txtPassword;
+        private Label spanPassword;
+        private Label spanLogin;
+        private Label spanEnable;
     }
 }
