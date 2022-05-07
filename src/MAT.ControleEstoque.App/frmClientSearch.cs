@@ -27,7 +27,7 @@ namespace MAT.ControleEstoque.App
                     FullName = client.FullName.Value,
                     Email = client.Email.Value,
                     Phone = client.Phone.Value,
-                    Address = client.Address.Value
+                    Address = client.Address.Value,  
                 };
 
                 clientList.Add(clientViewModel);
@@ -88,6 +88,11 @@ namespace MAT.ControleEstoque.App
         private void dgvClients_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SelectUser();
+        }
+
+        private void dgvClients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

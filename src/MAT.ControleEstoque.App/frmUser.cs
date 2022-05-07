@@ -1,4 +1,5 @@
-﻿using MAT.ControleEstoque.Business.Entities;
+﻿using MAT.ControleEstoque.App.Extensions;
+using MAT.ControleEstoque.Business.Entities;
 using MAT.ControleEstoque.Business.Interfaces;
 using MAT.ControleEstoque.Business.ValueObjects.User;
 using MAT.ControleEstoque.Data.Builder;
@@ -49,7 +50,6 @@ namespace MAT.ControleEstoque.App
             {
                 MessageBox.Show(ex.Message);
             }
-
             return null;
         }
 
@@ -67,7 +67,6 @@ namespace MAT.ControleEstoque.App
             {
                 MessageBox.Show(ex.Message);
             }
-
             return null;
         }
 
@@ -126,6 +125,7 @@ namespace MAT.ControleEstoque.App
                 txtId.Text = user.Id.ToString();
                 txtLogin.Text = user.Login.Value;
                 btnSave.Enabled = true;
+                btnAdd.Enabled = false;
             }
         }
 
@@ -147,6 +147,14 @@ namespace MAT.ControleEstoque.App
 
             if (login is null || password is null)
                 return;
+
+            var verifica = _userRepository.Login(login, password);
+
+            if (verifica is not null) 
+            {
+                MessageBox.Show("Usuário já tem cadastro");
+                return;
+            }
 
             var user = new User(
                 Guid.NewGuid(),

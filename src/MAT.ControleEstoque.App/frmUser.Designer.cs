@@ -65,16 +65,17 @@
             this.btnSearch.Location = new System.Drawing.Point(91, 15);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 0;
+            this.btnSearch.TabIndex = 1;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(175, 15);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 0;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Adicionar";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -91,13 +92,15 @@
             // 
             // gbMenu
             // 
+            this.gbMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbMenu.Controls.Add(this.btnClose);
             this.gbMenu.Controls.Add(this.btnSave);
             this.gbMenu.Controls.Add(this.btnSearch);
             this.gbMenu.Controls.Add(this.btnAdd);
-            this.gbMenu.Location = new System.Drawing.Point(-2, -11);
+            this.gbMenu.Location = new System.Drawing.Point(-8, -8);
             this.gbMenu.Name = "gbMenu";
-            this.gbMenu.Size = new System.Drawing.Size(795, 48);
+            this.gbMenu.Size = new System.Drawing.Size(801, 48);
             this.gbMenu.TabIndex = 1;
             this.gbMenu.TabStop = false;
             // 
@@ -117,7 +120,7 @@
             this.gbUser.Controls.Add(this.lblId);
             this.gbUser.Location = new System.Drawing.Point(12, 46);
             this.gbUser.Name = "gbUser";
-            this.gbUser.Size = new System.Drawing.Size(760, 153);
+            this.gbUser.Size = new System.Drawing.Size(781, 153);
             this.gbUser.TabIndex = 2;
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
@@ -127,7 +130,7 @@
             this.spanEnable.AutoSize = true;
             this.spanEnable.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.spanEnable.ForeColor = System.Drawing.Color.IndianRed;
-            this.spanEnable.Location = new System.Drawing.Point(269, 123);
+            this.spanEnable.Location = new System.Drawing.Point(258, 123);
             this.spanEnable.Name = "spanEnable";
             this.spanEnable.Size = new System.Drawing.Size(34, 15);
             this.spanEnable.TabIndex = 15;
@@ -138,7 +141,7 @@
             this.spanPassword.AutoSize = true;
             this.spanPassword.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.spanPassword.ForeColor = System.Drawing.Color.IndianRed;
-            this.spanPassword.Location = new System.Drawing.Point(383, 96);
+            this.spanPassword.Location = new System.Drawing.Point(383, 99);
             this.spanPassword.Name = "spanPassword";
             this.spanPassword.Size = new System.Drawing.Size(34, 15);
             this.spanPassword.TabIndex = 14;
@@ -149,7 +152,7 @@
             this.spanLogin.AutoSize = true;
             this.spanLogin.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.spanLogin.ForeColor = System.Drawing.Color.IndianRed;
-            this.spanLogin.Location = new System.Drawing.Point(383, 64);
+            this.spanLogin.Location = new System.Drawing.Point(383, 65);
             this.spanLogin.Name = "spanLogin";
             this.spanLogin.Size = new System.Drawing.Size(34, 15);
             this.spanLogin.TabIndex = 13;
@@ -157,10 +160,10 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(77, 90);
+            this.txtPassword.Location = new System.Drawing.Point(77, 91);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(300, 23);
-            this.txtPassword.TabIndex = 12;
+            this.txtPassword.TabIndex = 6;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtLogin
@@ -168,7 +171,7 @@
             this.txtLogin.Location = new System.Drawing.Point(77, 61);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(300, 23);
-            this.txtLogin.TabIndex = 11;
+            this.txtLogin.TabIndex = 5;
             // 
             // chkBoxDesabilitado
             // 
@@ -176,7 +179,7 @@
             this.chkBoxDesabilitado.Location = new System.Drawing.Point(161, 119);
             this.chkBoxDesabilitado.Name = "chkBoxDesabilitado";
             this.chkBoxDesabilitado.Size = new System.Drawing.Size(91, 19);
-            this.chkBoxDesabilitado.TabIndex = 10;
+            this.chkBoxDesabilitado.TabIndex = 8;
             this.chkBoxDesabilitado.Text = "Desabilitado";
             this.chkBoxDesabilitado.UseVisualStyleBackColor = true;
             this.chkBoxDesabilitado.CheckedChanged += new System.EventHandler(this.chkBoxDesabilitado_CheckedChanged);
@@ -187,7 +190,7 @@
             this.chkBoxHabilitado.Location = new System.Drawing.Point(77, 119);
             this.chkBoxHabilitado.Name = "chkBoxHabilitado";
             this.chkBoxHabilitado.Size = new System.Drawing.Size(81, 19);
-            this.chkBoxHabilitado.TabIndex = 9;
+            this.chkBoxHabilitado.TabIndex = 7;
             this.chkBoxHabilitado.Text = "Habilitado";
             this.chkBoxHabilitado.UseVisualStyleBackColor = true;
             this.chkBoxHabilitado.CheckedChanged += new System.EventHandler(this.chkBoxHabilitado_CheckedChanged);
@@ -225,7 +228,7 @@
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(300, 23);
-            this.txtId.TabIndex = 3;
+            this.txtId.TabIndex = 4;
             // 
             // lblId
             // 
@@ -274,8 +277,8 @@
         private CheckBox chkBoxHabilitado;
         private Label label1;
         private TextBox txtPassword;
+        private Label spanEnable;
         private Label spanPassword;
         private Label spanLogin;
-        private Label spanEnable;
     }
 }

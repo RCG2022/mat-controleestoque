@@ -46,6 +46,7 @@ namespace MAT.ControleEstoque.App
             services.AddTransient<frmClient>();
             services.AddTransient<frmClientSearch>();
             services.AddTransient<frmUser>();
+            services.AddTransient<frmUserSearch>();
 
             // Services
             services.AddSingleton<IAppService, AppService>();
