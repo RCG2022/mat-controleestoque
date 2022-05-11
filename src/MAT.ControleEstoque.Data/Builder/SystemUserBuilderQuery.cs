@@ -55,6 +55,18 @@ namespace MAT.ControleEstoque.Data.Builder
             return query.ToString();
         }
 
+        protected string CheckLoginSql()
+        {
+            var query = new StringBuilder();
+            query.AppendLine($"SELECT SystemUser.Id");
+            query.AppendLine($"     , SystemUser.Login");
+            query.AppendLine($"     , SystemUser.Password");
+            query.AppendLine($"     , SystemUser.Enabled");
+            query.AppendLine($"  FROM {_dbSchema}.SystemUser WITH(NOLOCK)");
+            query.AppendLine($" WHERE UPPER(SystemUser.Login) = UPPER({PARAM_LOGIN})");
+            return query.ToString();
+        }
+
 
         protected string InsertSql()
         {

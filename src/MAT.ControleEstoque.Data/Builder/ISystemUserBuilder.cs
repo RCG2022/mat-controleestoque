@@ -11,6 +11,8 @@ namespace MAT.ControleEstoque.Data.Builder
 
         public Request LoginRequest(string login, string password);
 
+        public Request CheckLoginRequest(string login);
+
         public Request InsertRequest(SystemUserView SystemUser);
 
         public Request UpdateRequest(SystemUserView SystemUser);

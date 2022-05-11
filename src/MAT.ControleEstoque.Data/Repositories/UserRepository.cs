@@ -73,6 +73,17 @@ namespace MAT.ControleEstoque.Data.Repositories
             return user;
         }
 
+        public bool CheckLogin(Login login)
+        {
+            var request = _userBuilder.CheckLoginRequest(login.Value);
+            var userView = _dbService.ExecuteQueryFirstOrDefault<SystemUserView>(request);
+
+            if (userView is null)
+                return false;
+
+            return true;
+        }
+
         public void Insert(User user)
         {
             var userView = new SystemUserView();

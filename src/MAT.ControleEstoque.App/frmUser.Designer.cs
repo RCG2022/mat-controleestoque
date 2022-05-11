@@ -34,14 +34,11 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.gbMenu = new System.Windows.Forms.GroupBox();
             this.gbUser = new System.Windows.Forms.GroupBox();
-            this.spanEnable = new System.Windows.Forms.Label();
             this.spanPassword = new System.Windows.Forms.Label();
             this.spanLogin = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.chkBoxDesabilitado = new System.Windows.Forms.CheckBox();
             this.chkBoxHabilitado = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
@@ -106,14 +103,11 @@
             // 
             // gbUser
             // 
-            this.gbUser.Controls.Add(this.spanEnable);
             this.gbUser.Controls.Add(this.spanPassword);
             this.gbUser.Controls.Add(this.spanLogin);
             this.gbUser.Controls.Add(this.txtPassword);
             this.gbUser.Controls.Add(this.txtLogin);
-            this.gbUser.Controls.Add(this.chkBoxDesabilitado);
             this.gbUser.Controls.Add(this.chkBoxHabilitado);
-            this.gbUser.Controls.Add(this.label1);
             this.gbUser.Controls.Add(this.lblPassword);
             this.gbUser.Controls.Add(this.lblLogin);
             this.gbUser.Controls.Add(this.txtId);
@@ -124,17 +118,6 @@
             this.gbUser.TabIndex = 2;
             this.gbUser.TabStop = false;
             this.gbUser.Text = "Usuario";
-            // 
-            // spanEnable
-            // 
-            this.spanEnable.AutoSize = true;
-            this.spanEnable.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.spanEnable.ForeColor = System.Drawing.Color.IndianRed;
-            this.spanEnable.Location = new System.Drawing.Point(258, 123);
-            this.spanEnable.Name = "spanEnable";
-            this.spanEnable.Size = new System.Drawing.Size(34, 15);
-            this.spanEnable.TabIndex = 15;
-            this.spanEnable.Text = "Span";
             // 
             // spanPassword
             // 
@@ -173,17 +156,6 @@
             this.txtLogin.Size = new System.Drawing.Size(300, 23);
             this.txtLogin.TabIndex = 5;
             // 
-            // chkBoxDesabilitado
-            // 
-            this.chkBoxDesabilitado.AutoSize = true;
-            this.chkBoxDesabilitado.Location = new System.Drawing.Point(161, 119);
-            this.chkBoxDesabilitado.Name = "chkBoxDesabilitado";
-            this.chkBoxDesabilitado.Size = new System.Drawing.Size(91, 19);
-            this.chkBoxDesabilitado.TabIndex = 8;
-            this.chkBoxDesabilitado.Text = "Desabilitado";
-            this.chkBoxDesabilitado.UseVisualStyleBackColor = true;
-            this.chkBoxDesabilitado.CheckedChanged += new System.EventHandler(this.chkBoxDesabilitado_CheckedChanged);
-            // 
             // chkBoxHabilitado
             // 
             this.chkBoxHabilitado.AutoSize = true;
@@ -193,16 +165,6 @@
             this.chkBoxHabilitado.TabIndex = 7;
             this.chkBoxHabilitado.Text = "Habilitado";
             this.chkBoxHabilitado.UseVisualStyleBackColor = true;
-            this.chkBoxHabilitado.CheckedChanged += new System.EventHandler(this.chkBoxHabilitado_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 15);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Status:";
             // 
             // lblPassword
             // 
@@ -273,11 +235,8 @@
         private Label lblPassword;
         private TextBox txtLogin;
         private Label lblLogin;
-        private CheckBox chkBoxDesabilitado;
         private CheckBox chkBoxHabilitado;
-        private Label label1;
         private TextBox txtPassword;
-        private Label spanEnable;
         private Label spanPassword;
         private Label spanLogin;
     }

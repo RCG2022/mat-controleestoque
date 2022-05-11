@@ -37,6 +37,15 @@ namespace MAT.ControleEstoque.Data.Builder
             return new Request(sql, parameters);
         }
 
+        public Request CheckLoginRequest(string login)
+        {
+            var sql = CheckLoginSql();
+            var parameters = new DynamicParameters();
+            parameters.Add(PARAM_LOGIN, login, DbType.String, ParameterDirection.Input);
+
+            return new Request(sql, parameters);
+        }
+
         public Request InsertRequest(SystemUserView SystemUser)
         {
             var sql = InsertSql();

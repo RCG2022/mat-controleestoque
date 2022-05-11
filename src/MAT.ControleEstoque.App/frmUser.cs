@@ -11,7 +11,7 @@ namespace MAT.ControleEstoque.App
     public partial class frmUser : Form
     {
         IUserRepository _userRepository;
-        private const string INVALID_ENABLE  = "Selecione Habilitar ou Desabilitar para realizar o cadastro";
+
         public frmUser()
         {
             var dbConfig = new DbConfig
@@ -32,7 +32,6 @@ namespace MAT.ControleEstoque.App
         {
              spanLogin.Text = string.Empty;
              spanPassword.Text = string.Empty;
-             spanEnable.Text = string.Empty;
         }
 
 
@@ -70,41 +69,11 @@ namespace MAT.ControleEstoque.App
             return null;
         }
 
-        private bool GetEnable()
-        {
-            try
-            {
-                if (chkBoxHabilitado.Checked)
-                {
-                    return true;
-                }
-                if (chkBoxDesabilitado.Checked)
-                {
-                    return false;
-                }
-                else
-                {
-                    throw new ArgumentException(INVALID_ENABLE);
-                    
-                }
-
-            }
-            catch (ArgumentException ex)
-            {
-                spanEnable.Text = ex.Message;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            return false;
-        }
-
         private void frmUser_Load(object sender, EventArgs e)
         {
            ClearSpans();
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
            this.Close();
@@ -117,6 +86,7 @@ namespace MAT.ControleEstoque.App
             form.FormClosed += (s, args) => LoadUser(form.SelectedUser);
             form.ShowDialog();
         }
+
         private void LoadUser(User? user)
         {
             if (user is not null)
@@ -125,7 +95,6 @@ namespace MAT.ControleEstoque.App
                 txtId.Text = user.Id.ToString();
                 txtLogin.Text = user.Login.Value;
                 btnSave.Enabled = true;
-                btnAdd.Enabled = false;
             }
         }
 
@@ -138,21 +107,17 @@ namespace MAT.ControleEstoque.App
                 return;
 
             ClearSpans();
-            if (GetEnable() == false && chkBoxDesabilitado.Checked == false)
-                return;
-
             var  login = GetLogin();
             var  password = GetPassword();
-            bool enable = GetEnable();
 
             if (login is null || password is null)
                 return;
 
-            var verifica = _userRepository.Login(login, password);
+            var verifica = _userRepository.CheckLogin(login);
 
-            if (verifica is not null) 
+            if (verifica) 
             {
-                MessageBox.Show("Usuário já tem cadastro");
+                MessageBox.Show("O login já está sendo utilizado");
                 return;
             }
 
@@ -160,7 +125,7 @@ namespace MAT.ControleEstoque.App
                 Guid.NewGuid(),
                 login,
                 password,
-                enable
+                chkBoxHabilitado.Checked
                 );
 
             _userRepository.Insert(user);
@@ -168,18 +133,6 @@ namespace MAT.ControleEstoque.App
             MessageBox.Show("Usuário adicionado com sucesso.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             this.Close();
-        }
-
-        private void chkBoxHabilitado_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkBoxHabilitado.Checked)
-                chkBoxDesabilitado.Checked = false;
-        }
-
-        private void chkBoxDesabilitado_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkBoxDesabilitado.Checked)
-                chkBoxHabilitado.Checked = false;
         }
     }
 }

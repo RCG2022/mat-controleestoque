@@ -7,9 +7,11 @@ namespace MAT.ControleEstoque.Business.Interfaces
     {
         public User FindById(Guid id); 
 
-        public IEnumerable<User> FindAll(string login); 
+        public IEnumerable<User> FindAll(string login);
 
-        public User Login(Login login, Password password); 
+        public User Login(Login login, Password password);
+
+        public bool CheckLogin(Login login);
 
         public void Insert(User user);
 
