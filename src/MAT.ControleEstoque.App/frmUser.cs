@@ -11,6 +11,7 @@ namespace MAT.ControleEstoque.App
     public partial class frmUser : Form
     {
         IUserRepository _userRepository;
+        User _userselect;
 
         public frmUser()
         {
@@ -88,12 +89,15 @@ namespace MAT.ControleEstoque.App
         }
 
         private void LoadUser(User? user)
+
         {
             if (user is not null)
             {
+                _userselect = user;
                 ClearSpans();
                 txtId.Text = user.Id.ToString();
                 txtLogin.Text = user.Login.Value;
+                chkBoxHabilitado.Checked = user.Enabled;
                 btnSave.Enabled = true;
             }
         }
@@ -134,5 +138,55 @@ namespace MAT.ControleEstoque.App
 
             this.Close();
         }
-    }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            ClearSpans();
+
+            var userOption = MessageBox.Show("Deseja atualizar os dados do usuario? ", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (userOption == DialogResult.No)
+                return;
+
+            var id = new Guid(txtId.Text);
+            var login = GetLogin();
+            
+            if (login is null)
+                return;
+
+            var verifica = _userRepository.CheckLogin(login);
+            if (verifica && login.Value != _userselect.Login.Value )
+            {
+                MessageBox.Show("O login já está sendo utilizado");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(txtPassword.Text))
+            {
+                var passwordOption = MessageBox.Show("Deseja atualizar a senha? ", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (passwordOption == DialogResult.Yes)
+                {
+                    var password = GetPassword();
+                    if (password is null)
+                        return ;
+
+                    _userRepository.UpdatePassword(id, password); 
+                }
+
+            }
+
+
+            var user = new User(
+                id,
+                login,
+                chkBoxHabilitado.Checked
+                );
+
+            _userRepository.Update(user);
+
+            MessageBox.Show("Usuario atualizado com sucesso.", "Confirmação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
+        }
+    
+    }   
 }
