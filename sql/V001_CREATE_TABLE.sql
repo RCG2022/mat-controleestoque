@@ -2,6 +2,11 @@ USE Mat_ControleEstoque
 
 DROP TABLE IF EXISTS SystemUser
 DROP TABLE IF EXISTS Client
+DROP TABLE IF EXISTS ShoppingCart
+DROP TABLE IF EXISTS Stock
+DROP TABLE IF EXISTS Sale
+DROP TABLE IF EXISTS Product
+
 
 CREATE TABLE Client (
  Id        UNIQUEIDENTIFIER NOT NULL CONSTRAINT Client_Id DEFAULT NEWID(),
@@ -52,5 +57,85 @@ VALUES ('498c3eaf-adff-4b88-aeb5-f749c8d77846', 'RAUNYSMZZ', 'E9CF49C80C4E79FDE3
 INSERT SystemUser (Id, Login, Password, Enabled)
 VALUES ('a31c3728-b172-49c4-a971-4886fb3355cc', 'CESAR', 'E9CF49C80C4E79FDE373A85F0F9E8C585EF7FCD514C3E506F1DAEE66EDDEDCEF0E427B1A12165BC2C6A68C5411E977D3C5A5DD7FD7E37F3097AEBE0C52FCF76C', '1') 
 
+GO
 
+CREATE TABLE Product (
+ Id             UNIQUEIDENTIFIER NOT NULL CONSTRAINT Product_Id DEFAULT NEWID(),
+ Name           NVARCHAR(50)     NOT NULL,
+ Indentifier    NVARCHAR(300)    NULL,
+ Detail         NVARCHAR(MAX)    NULL,
+ MinimumStock   INT              NOT NULL,
+ Price          DECIMAL(10,2)    NOT NULL
+ 
+ CONSTRAINT PK_Product PRIMARY KEY(Id)
+) 
 
+CREATE NONCLUSTERED INDEX IX_Product_001 ON Product (Name, Indentifier)
+
+GO
+
+INSERT Product (Id, Name, Indentifier, MinimumStock, Price)
+VALUES ('b1a034c9-c0ce-4281-b868-ae6d8b6b5ad5', 'Mouse',  'M2341', 5, 39.99) 
+
+INSERT Product (Id, Name, Indentifier, MinimumStock, Price)
+VALUES ('fb588561-e29c-43d5-926a-fdd0888e7c67', 'Teclado',  'M2342', 5, 49.99) 
+
+GO
+
+CREATE TABLE Stock (
+ Id        UNIQUEIDENTIFIER NOT NULL CONSTRAINT Stock_Id DEFAULT NEWID(),
+ IdProduto UNIQUEIDENTIFIER NOT NULL,
+ Quantity  INT              NOT NULL,
+ PriceCost DECIMAL(10,2)    NOT NULL,
+ DateTime  Date             NOT NULL
+ 
+ CONSTRAINT PK_Stock PRIMARY KEY(Id)
+ CONSTRAINT FK_Stock_001 FOREIGN KEY(IdProduto) REFERENCES Product(Id)
+)
+
+GO
+
+INSERT Stock (Id, IdProduto, Quantity, PriceCost, DateTime)
+VALUES ('f6cfc2df-a082-49bf-be73-9b31e36d9426', 'b1a034c9-c0ce-4281-b868-ae6d8b6b5ad5', 100,  20, '2022-05-10') 
+
+INSERT Stock (Id, IdProduto, Quantity, PriceCost, DateTime)
+VALUES ('f4cf051f-3de9-4c89-a33a-ad38a844ac48', 'fb588561-e29c-43d5-926a-fdd0888e7c67', 100,  25, '2022-05-11') 
+
+GO
+
+CREATE TABLE Sale (
+ Id       UNIQUEIDENTIFIER NOT NULL CONSTRAINT Sale_Id DEFAULT NEWID(),
+ IdClient UNIQUEIDENTIFIER NOT NULL,
+ DateTime Date             NOT NULL
+ 
+ CONSTRAINT PK_Sale PRIMARY KEY(Id)
+)
+
+GO
+
+INSERT Sale (Id, IdClient, DateTime)
+VALUES ('f6cfc2df-a082-49bf-be73-9b31e36d9426', '6982f837-2147-4a46-83d4-7b9bd2daae1c', '2022-05-13') 
+
+CREATE TABLE ShoppingCart (
+ Id        UNIQUEIDENTIFIER NOT NULL CONSTRAINT ShoppingCart_Id DEFAULT NEWID(),
+ IdProduto UNIQUEIDENTIFIER NOT NULL,
+ IdSale    UNIQUEIDENTIFIER NOT NULL,
+ Quantity  INT              NOT NULL,
+ Discount  DECIMAL(10,2)    NOT NULL
+ 
+ CONSTRAINT PK_ShoppingCart PRIMARY KEY(Id),
+ CONSTRAINT FK_ShoppingCart_001 FOREIGN KEY(IdProduto) REFERENCES Product(Id),
+ CONSTRAINT FK_ShoppingCart_002 FOREIGN KEY(IdSale)    REFERENCES Sale(Id)
+)
+
+GO
+
+INSERT ShoppingCart (Id, IdProduto, IdSale, Quantity, Discount)
+VALUES ('1d861689-a282-4b49-a672-04ed524e151a', 'b1a034c9-c0ce-4281-b868-ae6d8b6b5ad5', 'f6cfc2df-a082-49bf-be73-9b31e36d9426', 1,  0) 
+
+INSERT ShoppingCart (Id, IdProduto, IdSale, Quantity, Discount)
+VALUES ('cc5f8131-3822-4f89-9695-8f401a9927f7', 'fb588561-e29c-43d5-926a-fdd0888e7c67', 'f6cfc2df-a082-49bf-be73-9b31e36d9426', 2,  2) 
+
+select *, Product.Price - ShoppingCart.Discount as PriceDiscount, (Product.Price - ShoppingCart.Discount) * ShoppingCart.Quantity as Total  from sale
+join ShoppingCart on (sale.id = ShoppingCart.IdSale)
+join Product on (Product.id = ShoppingCart.IdProduto)
