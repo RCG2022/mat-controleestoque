@@ -65,8 +65,9 @@ CREATE TABLE Product (
  Indentifier    NVARCHAR(300)    NULL,
  Detail         NVARCHAR(MAX)    NULL,
  MinimumStock   INT              NOT NULL,
+ SuggestedPrice DECIMAL(10,2)    NOT NULL,
  Price          DECIMAL(10,2)    NOT NULL
- 
+
  CONSTRAINT PK_Product PRIMARY KEY(Id)
 ) 
 
