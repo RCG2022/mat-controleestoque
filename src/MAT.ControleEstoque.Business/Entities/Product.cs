@@ -17,7 +17,7 @@ namespace MAT.ControleEstoque.Business.Entities
         
         public SuggestedPrice SuggestedPrice { get; private set; }
         
-        public Price Price { get; private set; }
+        public DiscountPrice Price { get; private set; }
 
 
         public Product(
@@ -26,7 +26,7 @@ namespace MAT.ControleEstoque.Business.Entities
             Indentifier indentifier,
             Detail detail,
             MinimumStock minimumStock,
-            Price price,
+            DiscountPrice price,
             SuggestedPrice suggestedPrice
             )
         {

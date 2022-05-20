@@ -66,7 +66,7 @@ CREATE TABLE Product (
  Detail         NVARCHAR(MAX)    NULL,
  MinimumStock   INT              NOT NULL,
  SuggestedPrice DECIMAL(10,2)    NOT NULL,
- Price          DECIMAL(10,2)    NOT NULL
+ DiscountPrice  DECIMAL(10,2)    NOT NULL
 
  CONSTRAINT PK_Product PRIMARY KEY(Id)
 ) 
@@ -75,11 +75,11 @@ CREATE NONCLUSTERED INDEX IX_Product_001 ON Product (Name, Indentifier)
 
 GO
 
-INSERT Product (Id, Name, Indentifier, MinimumStock, Price)
-VALUES ('b1a034c9-c0ce-4281-b868-ae6d8b6b5ad5', 'Mouse',  'M2341', 5, 39.99) 
+INSERT Product (Id, Name, Indentifier, MinimumStock, SuggestedPrice, DiscountPrice )
+VALUES ('b1a034c9-c0ce-4281-b868-ae6d8b6b5ad5', 'Mouse',  'M2341', 5, 39.99, 29.99) 
 
-INSERT Product (Id, Name, Indentifier, MinimumStock, Price)
-VALUES ('fb588561-e29c-43d5-926a-fdd0888e7c67', 'Teclado',  'M2342', 5, 49.99) 
+INSERT Product (Id, Name, Indentifier, MinimumStock, SuggestedPrice, DiscountPrice)
+VALUES ('fb588561-e29c-43d5-926a-fdd0888e7c67', 'Teclado',  'M2342', 5, 49.99, 39.99) 
 
 GO
 

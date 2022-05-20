@@ -1,22 +1,55 @@
-﻿namespace MAT.ControleEstoque.Business.ValueObjects.Product
+﻿using Deviot.Common;
+using MAT.ControleEstoque.Business.ValueObjects.Product;
+using System;
+using Xunit;
+
+namespace MAT.ControleEstoque.Test.Business.ValueObjects
 {
-    internal class Name
+    public class NameTest
     {
-        private const string INVALID_LENGTH_MIN = "O nome do produto deve ter no mínimo 3 caracteres";
+        private const string INVALID_LENGTH_MIN = "O nome do produto deve ter no mínimo 2 caracteres";
         private const string INVALID_LENGTH_MAX = "O nome do produto deve ter no máximo 50 caracteres";
 
-        public string Value { get; private set; }
+        [Fact]//test
 
-        public Name(string value)
+        public void ValidateTrue()
         {
-            if (value.Length < 3)
-                throw new ArgumentException(INVALID_LENGTH_MIN);
+            // Arrange
 
-            if (value.Length > 50)
-                throw new ArgumentException(INVALID_LENGTH_MAX);
+            var name = "Teclado Gamer ";
 
-            Value = value;
+            // Act
+
+            var result = new Name(name);
+
+            // Assert
+
+            Assert.True(result.Value == name);
+
         }
+
+        [Fact] 
+
+        public void ValidateLenghtMin()
+        {
+            var name = "M";
+
+            var message = Assert.Throws<ArgumentException>(() => new Name(name)).Message;
+
+            Assert.True(message == INVALID_LENGTH_MIN);
+        }
+
+        [Fact]
+         public void ValidateLenghtMax()
+        {
+            var name = Utils.GenerateRandomString(51);
+
+            var message = Assert.Throws<ArgumentException>(() => new Name(name)).Message;
+
+            Assert.True(message == INVALID_LENGTH_MAX);
+        }
+
+
     }
 
 }
