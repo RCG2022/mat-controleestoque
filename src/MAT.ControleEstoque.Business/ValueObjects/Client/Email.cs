@@ -4,6 +4,7 @@ namespace MAT.ControleEstoque.Business.ValueObjects.Client
 {
     public class Email
     {
+        private const string INVALID_LENGTH_MIN = "O e-mail deve ter no mínimo 7 caracteres";
         private const string INVALID_LENGTH_MAX = "O e-mail completo deve ter no maximo 50 caracteres";
         private const string INVALID_EMAIL      = "O e-mail é invalido";
 
@@ -11,14 +12,15 @@ namespace MAT.ControleEstoque.Business.ValueObjects.Client
 
         public Email (string value)
         {
-       
+            if(value.Length < 7)
+                throw new ArgumentException(INVALID_LENGTH_MIN);
+
             if (value.Length > 50)
                 throw new ArgumentException(INVALID_LENGTH_MAX);
 
             if (ValidateEmailRauny(value) == false) 
-            {
                 throw new ArgumentException(INVALID_EMAIL);
-            }
+            
 
             Value = value.ToLower();
             

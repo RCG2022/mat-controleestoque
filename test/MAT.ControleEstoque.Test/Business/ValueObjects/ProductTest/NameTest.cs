@@ -1,9 +1,8 @@
 ﻿using Deviot.Common;
-using MAT.ControleEstoque.Business.ValueObjects.Product;
 using System;
 using Xunit;
 
-namespace MAT.ControleEstoque.Test.Business.ValueObjects
+namespace MAT.ControleEstoque.Business.ValueObjects.Product
 {
     public class NameTest
     {
